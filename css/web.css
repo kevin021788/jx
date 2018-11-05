@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #0d0d0d;
+    font-family: "Arial";
+}
+/*圆角NAV*/
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #FFFFFF;
+    background: #343333;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
+}
+.clear {
+    clear: both;
+}
+.hl120 {
+    height:3.5em;
+    line-height:3.5em;
+    padding:2em 0;
+}
+.navbar-inverse {
+    /*padding: 0.3em 0;*/
+    /*height: 7.5em;*/
+    /*width: 100%;*/
+    /*margin: 0px auto;*/
+    background: #cacbcb !important;
+    border: 1px #cacbcb solid  !important;
+    opacity: 0.8;
+    /*text-align: center;*/
+    /*line-height: 1.9em;*/
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    background: #cacbcb !important;
+}
+
+/**导航条 */
+.navbar-nav {
+    margin-top: 1em !important;
+    color: #0d0d0d;
+    font-weight: bold;
+    font-size: 1.25em;
+    list-style: none;
+    float: left;
+}
+
+/**LOGO*/
+.navbar-brand {
+    width: 12.5em;
+    height: 4.3em !important;
+    display: block;
+    text-align: center;
+}
+.navbar-brand img {
+    width: 7.5em;
+    height: 3em;
+    margin:0 auto;
+}
+
+body {
+    background: #ececec url(../img/bg.jpg) repeat-y center;
+    overflow-x: hidden;
+}
+.footer { clear:both}
+
+.footer .footer-nav {
+    background: url(../img/footerbg.jpg) repeat-x;
+    width: 100%;
+    height: 70px;
+    display: block;
+}
+.footer .footer-nav .tool {width: 67em; margin: 0 auto;}
+.footer .footer-nav .tool li {
+    float: left;
+    line-height: 70px;
+    list-style: none;
+    font-weight: bold;
+    padding: 0 2em 0 3em;
+}
+
+.footer .footer-nav .tool li.tel {
+    background: url(../img/tel.png) no-repeat center left;
+
+}
+
+.footer .footer-nav .tool li.mail {
+    background: url(../img/mail.png) no-repeat center left;
+}
+
+.footer .footer-nav .tool li.address {
+    background: url(../img/address.png) no-repeat center left;
+}
+.footer .footer-logo {
+    text-align: center;
+}
+.footer .footer-logo img {
+    width: auto !important;
+    height: 12em !important;
+    /*background: url(../img/footer-logo.png) center no-repeat;*/
+}
+
+.footer .footer-copyright {
+    background: #000000;
+    height: 50px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+}

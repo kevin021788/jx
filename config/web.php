@@ -4,6 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name' => 'Radio International.CRI.',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'index',
@@ -41,6 +42,7 @@ $config = [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'fileMap' => [
                         'common' => 'common.php', //后台文件语言包
+                        'home' => 'home.php', //前台文件语言包
                     ],
                     'basePath' => '@webroot/components/message', //配置语言文件路径，现在采用默认的，就可以不配置这个
                 ],

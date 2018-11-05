@@ -65,6 +65,13 @@ if(!function_exists('getSavePath')) {
 
     }
 }
+if(!function_exists('getWebConfig'))
+{
+    function getWebConfig()
+    {
+        return yii\helpers\ArrayHelper::map(\app\models\Config::find()->select(['name','value'])->where(['language'=>\app\components\message\Language::getLanguageNum()])->asArray()->all(), 'name', 'value');
+    }
+}
 
 if(!function_exists('getUEditorConfig'))
 {

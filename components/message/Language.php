@@ -13,13 +13,11 @@ class Language
 {
 
     public static $lang = [
-        'zh-CN' => 1,
         'en-US' => 2,
         'fa' => 3,
     ];
 
     public static $languages = [
-        'zh-CN' => '简体中文',
         'en-US' => 'English (US)',
         'fa' => 'Farsi',
     ];

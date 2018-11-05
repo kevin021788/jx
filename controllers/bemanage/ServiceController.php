@@ -109,7 +109,7 @@ class ServiceController extends Controller
             $image = UploadedFile::getInstance($model, 'imgUrl');
             if(isset($image)) {
                 $ext = $type = substr(strrchr($image->name, '.'), 1);
-                $model->imgUrl = Yii::$app->params['uploadNewsPath'] . date('YmdHis', time()).mt_rand(1000,9999).".{$ext}";
+                $model->imgUrl = Yii::$app->params['uploadServicePath'] . date('YmdHis', time()).mt_rand(1000,9999).".{$ext}";
                 $path = '.' . $model->imgUrl;
             }
             if($model->save()){
@@ -143,7 +143,7 @@ class ServiceController extends Controller
             $image = UploadedFile::getInstance($model, 'imgUrl');
             if(isset($image)) {
                 $ext = $type = substr(strrchr($image->name, '.'), 1);
-                $model->imgUrl = Yii::$app->params['uploadNewsPath'] . date('YmdHis', time()).mt_rand(1000,9999).".{$ext}";
+                $model->imgUrl = Yii::$app->params['uploadServicePath'] . date('YmdHis', time()).mt_rand(1000,9999).".{$ext}";
                 $path = '.' . $model->imgUrl;
             } else {
                 //编辑时图片没变化，保留原图

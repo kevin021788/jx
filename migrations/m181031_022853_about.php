@@ -29,6 +29,12 @@ class m181031_022853_about extends Migration
             'language' => $this->integer(2)->defaultValue(1)->comment('Language Type'),
         ], $tableOptions);
 
+        $this->batchInsert(self::$tableName, [ 'name', 'slug', 'imgUrl', 'desc', 'content', 'sort', 'status', 'created_at', 'updated_at', 'language'], [
+            ['关于我们', '', 'asdf', 'adsf', '关于我们', 0, 1, 1541059561, 1541059561, 1],
+            ['About Us', '', 'asdf', 'adsf', 'About Us', 0, 1, 1541059561, 1541059561, 2],
+            ['دربارهی ما', '', 'asdf', 'adsf', 'دربارهی ما', 0, 1, 1541059561, 1541059788, 3],
+        ]);
+
     }
 
     /**

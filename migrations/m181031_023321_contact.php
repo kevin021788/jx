@@ -29,6 +29,11 @@ class m181031_023321_contact extends Migration
             'language' => $this->integer(2)->defaultValue(1)->comment('Language Type'),
         ], $tableOptions);
 
+        $this->batchInsert(self::$tableName, [ 'name', 'slug', 'imgUrl', 'desc', 'content', 'sort', 'status', 'created_at', 'updated_at', 'language'], [
+            ['联系我们', '', 'asdf', 'adsf', '联系我们', 0, 1, 1541059561, 1541059561, 1],
+            ['Contact Us', '', 'asdf', 'adsf', 'Contact Us', 0, 1, 1541059561, 1541059561, 2],
+            ['تماس با ما', '', 'asdf', 'adsf', 'تماس با ما', 0, 1, 1541059561, 1541059788, 3],
+        ]);
     }
 
     /**

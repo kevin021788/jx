@@ -1,144 +1,88 @@
 <?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use kartik\alert\Alert;
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use app\assets\AppAsset;
 
-
-if (Yii::$app->controller->action->id === 'vote-detail') {
-    /**
-     * Do not use this code in your template. Remove it.
-     * Instead, use the code  $this->layout = '//main-login'; in your controller.
-     */
-    echo $this->render(
-        'main-vote',
-        ['content' => $content]
-    );
-} else {
+AppAsset::register($this);
+$config = Yii::$app->cache->get('config_'.\app\components\message\Language::getLanguageNum());
+if(empty($config))
+{
+    $config = getWebConfig();
+    Yii::$app->cache->set('config_' . \app\components\message\Language::getLanguageNum(),$config);
+}
 ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?= Yii::$app->language ?>">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?= $this->title ?></title>
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <?= Html::csrfMetaTags() ?>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="stylesheet" href="/css/site.css">
-  <link rel="stylesheet" href="/css/light7/light7.min.css">
-  <link rel="stylesheet" href="/css/light7/light7-swiper.css">
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <meta name="keywords" content="<?=Html::encode($config['WEB_SITE_KEYWORD'])?>">
+    <meta name="description" content="<?=Html::encode($config['WEB_SITE_DESCRIPTION'])?>">
+    <link href="/css/web.css" rel="stylesheet">
+    <?php $this->head() ?>
 </head>
 <body>
+<?php $this->beginBody() ?>
 
-  <!-- Page body begin -->
-  <div class="page">
+<div class="wrap">
+    <?php
+    NavBar::begin([
+        'brandLabel' => '<img src="/img/logo.png">',
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => [
+            'class' => 'navbar-inverse navbar-fixed-top',
+        ],
+    ]);
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left nav'],
+        'items' => [
+            ['label' => Yii::t('home','Home'), 'url' => ['/site/index']],
+            ['label' => Yii::t('home','About Us'), 'url' => ['/site/about']],
+            ['label' => Yii::t('home','Service Item'), 'url' => ['/site/service']],
+            ['label' => Yii::t('home','Product Display'), 'url' => ['/site/product']],
+            ['label' => Yii::t('home','News'), 'url' => ['/site/news']],
+            ['label' => Yii::t('home','Contact Us'), 'url' => ['/site/contact']],
+            ['label' => Yii::t('home','English'), 'url' => ['/lang/language?lang=en-US']],
+            ['label' => Yii::t('home','Farsi'), 'url' => ['/lang/language?lang=fa'],'class'=>'aaa'],
+        ],
+    ]);
+    NavBar::end();
+    ?>
 
-    <nav class="bar bar-tab">
-      <a class="tab-item <?= $this->params['active'][0] ?>" href="/site/index">
-        <span class="icon icon-index"></span>
-        <span class="tab-label">首页</span>
-      </a>
-      <a class="tab-item <?= $this->params['active'][1] ?>" href="/site/team">
-        <span class="icon icon-team"></span>
-        <span class="tab-label">球队</span>
-      </a>
-      <a class="tab-item <?= $this->params['active'][2] ?>" href="/site/competition">
-        <span class="icon icon-competition"></span>
-        <span class="tab-label">赛程</span>
-      </a>
-      <a class="tab-item <?= $this->params['active'][3] ?>" href="/site/live">
-        <span class="icon icon-live"></span>
-        <span class="tab-label">直播</span>
-      </a>
-      <a class="tab-item <?= $this->params['active'][4] ?>" href="/site/shop">
-        <span class="icon icon-shop"></span>
-        <span class="tab-label">商家</span>
-      </a>
-    </nav>
-
-    <div class="content">
-      <!-- page content container -->
-      <?= $content ?>
+    <div class="container">
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
     </div>
+</div>
 
-  </div>  <!-- Page body end -->
-
-  <script type='text/javascript' src='/js/jquery-2.2.4.min.js' charset='utf-8'></script>
-  <script type="text/javascript">
-  $.config = {
-    autoInit: true,
-    // router: false,
-    swipePanelOnlyClose: true
-  }
-  function subscribe(sid) {
-    var phone = $('#phone').val();
-    var shop_id = sid;
-    if(phone != '' && shop_id != '') {
-      $.showPreloader('正在提交您的预约');
-      $.post('/site/save-client', {_csrf:'<?= Yii::$app->request->csrfToken ?>', Client: {phone:phone, shop_id:shop_id}}, function(response){
-        $.hidePreloader();
-        // console.log(response);
-        if(response.success) {
-          $.alert('预约提交成功！');
-        } else {
-          $.alert('预约提交失败！');
-        }
-      }, 'json');
-    }
-  }
-  function dovote(tid)
-  {
-    // console.log(tid);
-    $.showPreloader('正在提交您的投票');
-    $.post('/site/save-vote', {_csrf:'<?= Yii::$app->request->csrfToken ?>', Vote: {team_id: tid}}, function(response){
-      $.hidePreloader();
-      if(response.success) {
-        var team_poll = $("#poll_" + tid).text();
-        var poll_count = $('#polls').text();
-        team_poll = +team_poll + 1;
-        poll_count = +poll_count + 1;
-        $('#poll_'+tid).text(team_poll);
-        $('#polls').text(poll_count);
-        $.alert('投票成功！');
-      } else {
-        if(response.msg !== null) {
-          $.alert(response.msg);
-        } else {
-          $.alert('投票失败！');
-        }
-      }
-    }, 'json');
-  }
-  </script>
-  <script type='text/javascript' src='/js/light7/light7.min.js' charset='utf-8'></script>
-  <?php if($this->params['active'][0] == 'active' && !$this->params['isnews']): ?>
-  <script type='text/javascript' src='/js/light7/light7-swiper.js' charset='utf-8'></script>
-  <script>
-  <?php foreach($this->params['albums'] as $album): ?>
-  var newsAlbum_<?=$album['id']?> = $.photoBrowser({
-    photos : [
-      <?php foreach($album['albumpics'] as $albumpics): ?>
-      {
-        url: '<?=$albumpics['imgurl']?>',
-        caption: '<?=str_replace(["\r\n", "\n", "\r"], "<br>", $albumpics['caption'])?>'
-      },
-      <?php endforeach; ?>
-    ],
-    // navbar: false,
-    toolbar: false,
-    theme: 'dark',
-    type: 'standalone',
-    swipeToClose: false,
-    expositionHideCaptions: true,
-    ofText: '<?=$album['title']?>'
-  });
-  $(document).on('click','#album_<?=$album['id']?>',function () {
-    newsAlbum_<?=$album['id']?>.open();
-  });
-  <?php endforeach; ?>
-  </script>
-  <?php endif; ?>
+<footer class="footer">
+    <div class="footer-nav">
+        <ul class="tool">
+            <li class="tel"><?= Html::encode($config['WEB_SITE_TEL'])?></li>
+            <li class="mail"><?= Html::encode($config['WEB_SITE_MAIL'])?></li>
+            <li class="address"><?= Html::encode($config['WEB_SITE_ADDRESS'])?></li>
+        </ul>
+    </div>
+    <div class="footer-logo">
+        <img src="/img/footer-logo.png">
+    </div>
+    <div class="footer-copyright"><?= Html::encode($config['WEB_SITE_COPYRIGHT'])?></div>
+</footer>
+<?php $this->endBody() ?>
 </body>
 </html>
-
-<?php } ?>
+<?php $this->endPage() ?>
