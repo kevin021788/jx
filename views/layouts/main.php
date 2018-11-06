@@ -36,6 +36,8 @@ if(empty($config))
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
+
     <?php
     NavBar::begin([
         'brandLabel' => '<img src="/img/logo.png">',
@@ -46,6 +48,7 @@ if(empty($config))
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left nav'],
+        'encodeLabels' => false,
         'items' => [
             ['label' => Yii::t('home','Home'), 'url' => ['/site/index']],
             ['label' => Yii::t('home','About Us'), 'url' => ['/site/about']],
@@ -53,18 +56,23 @@ if(empty($config))
             ['label' => Yii::t('home','Product Display'), 'url' => ['/site/product']],
             ['label' => Yii::t('home','News'), 'url' => ['/site/news']],
             ['label' => Yii::t('home','Contact Us'), 'url' => ['/site/contact']],
-            ['label' => Yii::t('home','English'), 'url' => ['/lang/language?lang=en-US']],
-            ['label' => Yii::t('home','Farsi'), 'url' => ['/lang/language?lang=fa'],'class'=>'aaa'],
+            ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-'.(\app\components\message\Language::getLanguageNum()==2 ? 'en-US' : 'fa') .'"></i>'.Yii::t('home',(\app\components\message\Language::getLanguageNum()==2) ? 'English' : 'Farsi' ), 'items' =>[
+                    ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-en-US"></i>'.Yii::t('home','English'), 'url' => ['/lang/language?lang=en-US']],
+                    ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-fa"></i>'.Yii::t('home','Farsi'), 'url' => ['/lang/language?lang=fa']],
+                ]
+            ],
         ],
     ]);
     NavBar::end();
     ?>
 
     <div class="container">
+        <div class="page-top"></div>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= Alert::widget() ?>
+
+        <?//= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>

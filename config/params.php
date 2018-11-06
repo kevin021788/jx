@@ -9,6 +9,9 @@ return [
     'uploadProductPath' => '/upload/product/',
     'uploadServicePath' => '/upload/service/',
     'uploadBannerPath' => '/upload/banner/',
+    'newsPageSize' => 5,
+    'productPageSize' => 8,
+    'servicePageSize' => 8,
     'mdm.admin.configs' => [
       'defaultUserStatus' => 0, // 0 = inactive, 10 = active
     ],

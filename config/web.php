@@ -112,13 +112,15 @@ $config = [
     ],
     'as access' => [
       'class' => 'mdm\admin\components\AccessControl',
-      'allowActions' => [
-        'site/*',
-        'index/*',
-        'admin/user/*',
+        'allowActions' => [
+            'site/*',
+            'lang/*',
+            'index/*',
+            'admin/user/*',
 //         'gii/*',
-//         'admin/*',
-      ]
+            'admin/*',
+        ],
+
     ],
     'params' => $params,
 ];

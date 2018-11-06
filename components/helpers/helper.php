@@ -224,6 +224,10 @@ if (!function_exists('curlPost'))
         return $res;
     }
 }
+/**
+ * 替换后台Model路径问题
+ * 将bemanage/news换成news
+ */
 if (!function_exists('replaceBackend')) {
     function replaceBackend($str)
     {
