@@ -64,7 +64,12 @@ class BannerSearch extends Banner
             'id' => $this->id,
             "{$tableName}.status" => $this->status,
         ]);
-
+        if($this->categoryId)
+        {
+            $query->andFilterWhere([
+                'category.id' => $this->categoryId,
+            ]);
+        }
         if($this->created_at)
         {
             $beginTime = strtotime($this->created_at);

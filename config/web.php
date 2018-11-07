@@ -118,7 +118,7 @@ $config = [
             'index/*',
             'admin/user/*',
 //         'gii/*',
-            'admin/*',
+//            'admin/*',
         ],
 
     ],

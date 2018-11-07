@@ -30,6 +30,8 @@ if(empty($config))
     <meta name="keywords" content="<?=Html::encode($config['WEB_SITE_KEYWORD'])?>">
     <meta name="description" content="<?=Html::encode($config['WEB_SITE_DESCRIPTION'])?>">
     <link href="/css/web.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/light7/light7.min.css">
+    <link rel="stylesheet" href="/css/light7/light7-swiper.css">
     <?php $this->head() ?>
 </head>
 <body>
@@ -91,6 +93,9 @@ if(empty($config))
     <div class="footer-copyright"><?= Html::encode($config['WEB_SITE_COPYRIGHT'])?></div>
 </footer>
 <?php $this->endBody() ?>
+<script type='text/javascript' src='/js/light7/light7.min.js' charset='utf-8'></script>
+
+
 </body>
 </html>
 <?php $this->endPage() ?>

@@ -17,6 +17,7 @@ class m181101_091445_banner extends Migration
         }
         $this->createTable(self::$tableName, [
             'id' => $this->primaryKey()->comment('ID'),
+            'cat_id' => $this->integer(11)->defaultValue(0)->comment('category Id'),
             'name' => $this->string(50)->comment('Name'),
             'imgUrl' => $this->string(255)->comment('imgUrl'),
             'desc' => $this->string(255)->comment('Description'),

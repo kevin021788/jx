@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\components\message\Language;
 use app\models\About;
+use app\models\Banner;
 use app\models\Contact;
 use app\models\Product;
 use app\models\Service;
@@ -43,9 +44,8 @@ class SiteController extends Controller
     {
 
         $config = Yii::$app->cache->get('config_'.\app\components\message\Language::getLanguageNum());
-
-
-      return $this->render('index', ['config'=>$config]);
+        $banner = Banner::find()->select(['name','imgUrl','url'])->where(['language' => Language::getLanguageNum(),'status'=>1])->asArray()->all();
+        return $this->render('index', ['config'=>$config,'banner'=>$banner]);
     }
 
     /**
