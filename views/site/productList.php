@@ -11,8 +11,35 @@ $ct = [
     3=>'four',
 ];
 ?>
+<div class="news w1180">
+<?= $this->render('banner',['banner'=>$banner])?>
+    <h1 class="title"><span><?=Yii::t('home','Product')?></span></h1>
+    <?php
+    if($category)
+    {
+        ?>
+        <div class="category">
+            <ul>
+                <?php
+                $catId = Yii::$app->request->get('cat_id', '');
+                foreach ($category as $k=>$v)
+                {
+                    if(empty($v)) continue;
+                    ?>
+                    <li class="<?=$catId==$v['id']?'cur':''?>"><a href="<?=yiiUrl('/site/product?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
+        <?php
+    }
+    ?>
+</div>
+<div class="clear"></div>
+<div class="product-type-ajax">
 
-<div class="product-type-ajax"><ul class="f-cb">
+    <ul class="f-cb">
         <?php foreach($list as $k=>$v):
             $b = $k%4;
             ?>

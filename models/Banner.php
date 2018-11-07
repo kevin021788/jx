@@ -122,4 +122,23 @@ class Banner extends \yii\db\ActiveRecord
             'language' => 'Language',
         ];
     }
+
+    /**
+     * 获取BANNER图片
+     * @param string $model
+     * @return array|ActiveRecord[]
+     */
+    public static function getBanner($model='home')
+    {
+        $sql = "SELECT 
+                      * 
+                FROM 
+                      banner 
+                LEFT JOIN 
+                      category ON cat_id=category.id 
+                WHERE 
+                      category.name ='".$model."' AND model='banner' AND banner.status=1";
+
+        return self::findBySql($sql)->asArray()->all();
+    }
 }

@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\components\message\Language;
 use app\models\About;
 use app\models\Banner;
+use app\models\Category;
 use app\models\Contact;
 use app\models\Product;
 use app\models\Service;
@@ -42,10 +43,13 @@ class SiteController extends Controller
     //首页
     public function actionIndex()
     {
-
         $config = Yii::$app->cache->get('config_'.\app\components\message\Language::getLanguageNum());
-        $banner = Banner::find()->select(['name','imgUrl','url'])->where(['language' => Language::getLanguageNum(),'status'=>1])->asArray()->all();
-        return $this->render('index', ['config'=>$config,'banner'=>$banner]);
+        $banner = \app\models\Banner::getBanner('home');
+
+        return $this->render('index', [
+            'config' => $config,
+            'banner' => $banner,
+        ]);
     }
 
     /**
@@ -54,8 +58,13 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        $banner = \app\models\Banner::getBanner('about');
+
         $model = About::findOne(Language::getLanguageNum());
-        return $this->render('about',['model'=>$model]);
+        return $this->render('about',[
+            'model' => $model,
+            'banner' => $banner,
+        ]);
     }
 
     /**
@@ -64,8 +73,13 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $banner = \app\models\Banner::getBanner('about');
+
         $model = Contact::findOne(Language::getLanguageNum());
-        return $this->render('contact',['model'=>$model]);
+        return $this->render('contact',[
+            'model' => $model,
+            'banner' => $banner,
+        ]);
     }
     /**
      * 新闻列表
@@ -73,6 +87,9 @@ class SiteController extends Controller
      */
     public function actionNews()
     {
+        $md = 'news';
+        $banner = \app\models\Banner::getBanner($md);
+        $category = Category::getCategoryList($md);
         $model = new News();
         $ret = $model::getList();
         if($ret['success'])
@@ -83,11 +100,17 @@ class SiteController extends Controller
                 'model' => $model,
                 'list' => $list,
                 'pages' => $pages,
+                'banner' => $banner,
+                'category' => $category,
             ]);
         }
         else
         {
-            return $this->render('newsList',['list'=>[]]);
+            return $this->render('newsList',[
+                'list' => [],
+                'banner' => $banner,
+                'category' => $category,
+            ]);
         }
 
     }
@@ -99,11 +122,18 @@ class SiteController extends Controller
      */
     public function actionNewsDetail($id)
     {
+        $md = 'news';
+        $banner = \app\models\Banner::getBanner($md);
+        $category = Category::getCategoryList($md);
         $model = News::getDetail($id);
         if (empty($model)) {
             return $this->redirect(['news']);
         } else {
-            return $this->render('newsDetail', ['model' => $model]);
+            return $this->render('newsDetail', [
+                'model' => $model,
+                'banner' => $banner,
+                'category' => $category,
+            ]);
         }
     }
 
@@ -113,6 +143,9 @@ class SiteController extends Controller
      */
     public function actionProduct()
     {
+        $md = 'product';
+        $banner = \app\models\Banner::getBanner($md);
+        $category = Category::getCategoryList($md);
         $model = new Product();
         $ret = $model::getList();
         if($ret['success'])
@@ -123,11 +156,17 @@ class SiteController extends Controller
                 'model' => $model,
                 'list' => $list,
                 'pages' => $pages,
+                'banner' => $banner,
+                'category' => $category,
             ]);
         }
         else
         {
-            return $this->render('productList',['list'=>[]]);
+            return $this->render('productList',[
+                'list' => [],
+                'banner' => $banner,
+                'category' => $category,
+            ]);
         }
 
     }
@@ -139,11 +178,18 @@ class SiteController extends Controller
      */
     public function actionProductDetail($id)
     {
+        $md = 'product';
+        $banner = \app\models\Banner::getBanner($md);
+        $category = Category::getCategoryList($md);
         $model = Product::getDetail($id);
         if (empty($model)) {
             return $this->redirect(['product']);
         } else {
-            return $this->render('productDetail', ['model' => $model]);
+            return $this->render('productDetail', [
+                'model' => $model,
+                'banner' => $banner,
+                'category' => $category,
+            ]);
         }
     }
 
@@ -153,6 +199,9 @@ class SiteController extends Controller
      */
     public function actionService()
     {
+        $md = 'service';
+        $banner = \app\models\Banner::getBanner($md);
+        $category = Category::getCategoryList($md);
         $model = new Service();
         $ret = $model::getList();
         if($ret['success'])
@@ -163,11 +212,17 @@ class SiteController extends Controller
                 'model' => $model,
                 'list' => $list,
                 'pages' => $pages,
+                'banner' => $banner,
+                'category' => $category,
             ]);
         }
         else
         {
-            return $this->render('serviceList',['list'=>[]]);
+            return $this->render('serviceList',[
+                'list' => [],
+                'banner' => $banner,
+                'category' => $category,
+            ]);
         }
 
     }
@@ -179,11 +234,18 @@ class SiteController extends Controller
      */
     public function actionServiceDetail($id)
     {
+        $md = 'service';
+        $banner = \app\models\Banner::getBanner($md);
+        $category = Category::getCategoryList($md);
         $model = Service::getDetail($id);
         if (empty($model)) {
             return $this->redirect(['service']);
         } else {
-            return $this->render('serviceDetail', ['model' => $model]);
+            return $this->render('serviceDetail', [
+                'model' => $model,
+                'banner' => $banner,
+                'category' => $category,
+            ]);
         }
     }
 

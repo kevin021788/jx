@@ -137,11 +137,17 @@ class Product extends \yii\db\ActiveRecord
     {
         try{
             $db = \Yii::$app->db;
-            $count = $db->createCommand('SELECT COUNT(*) as count FROM '.self::tableName().' WHERE language='.Language::getLanguageNum())->queryOne();
+            $catId = Yii::$app->request->get('cat_id', '');
+            $where = '';
+            if(is_numeric($catId))
+            {
+                $where = ' AND cat_id='.$catId;
+            }
+            $count = $db->createCommand('SELECT COUNT(*) as count FROM '.self::tableName().' WHERE language='.Language::getLanguageNum().$where)->queryOne();
             if($count)
             {
                 $pages = new Pagination(['totalCount' => $count['count'], 'defaultPageSize' => yiiParams('productPageSize')]);
-                $list = $db->createCommand("SELECT * FROM ".self::tableName()." WHERE language=".Language::getLanguageNum()." LIMIT ".$pages->offset.",".$pages->limit)->queryAll();
+                $list = $db->createCommand("SELECT * FROM ".self::tableName()." WHERE language=".Language::getLanguageNum().$where." LIMIT ".$pages->offset.",".$pages->limit)->queryAll();
                 $ret = ['success'=>true,'pages'=>$pages,'list'=>$list];
             }
             else

@@ -10,8 +10,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <div class="site-contact">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+    <?= $this->render('banner',['banner'=>$banner])?>
+    <h1 class="title"><span><?= Html::encode($this->title) ?></span></h1>
 
     <?=$model['content']?>
 </div>

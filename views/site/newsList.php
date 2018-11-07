@@ -3,11 +3,33 @@ use yii\widgets\LinkPager;
 /* @var $this yii\web\View */
 
 $this->title = Yii::t('home','News List');
-$this->params['breadcrumbs'][] = $this->title;
+$banner = \app\models\Banner::getBanner('news');
 ?>
 <div class="news w1180">
+    <?= $this->render('banner',['banner'=>$banner])?>
+    <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
+    <?php
+    if($category)
+    {
+        ?>
+        <div class="category">
+            <ul>
+                <?php
+                $catId = Yii::$app->request->get('cat_id', '');
+                foreach ($category as $k=>$v)
+                {
+                    if(empty($v)) continue;
+                    ?>
+                    <li class="<?=$catId==$v['id']?'cur':''?>"><a href="<?=yiiUrl('/site/news?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
+        <?php
+    }
+    ?>
     <ul class="f-cb news-list">
-
         <?php foreach($list as $v): ?>
         <li>
             <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">

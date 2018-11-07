@@ -187,4 +187,14 @@ class Category extends \yii\db\ActiveRecord
     {
         return new CategoryQuery(get_called_class());
     }
+
+    /**
+     * 前台分类列表
+     * @param $model
+     * @return Category[]|array
+     */
+    public static function getCategoryList($model)
+    {
+        return self::find()->where(['model' => $model,'status'=>1,'language'=>Language::getLanguageNum()])->orderBy(['sort'=>'asc','id'=>'desc'])->asArray()->all();
+    }
 }
