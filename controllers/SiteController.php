@@ -50,11 +50,14 @@ class SiteController extends Controller
 
         $service = Service::getIndexProductList(4);
 
+        $about =  About::findOne(Language::getLanguageNum());
+
         return $this->render('index', [
             'config' => $config,
             'banner' => $banner,
             'product' => $product,
             'service' => $service,
+            'about' => $about,
 
         ]);
     }

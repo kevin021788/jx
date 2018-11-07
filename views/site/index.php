@@ -11,21 +11,6 @@ $this->title = $config['WEB_SITE_TITLE'];
   <!-- Banner -->
     <?= $this->render('banner',['banner'=>$banner])?>
 
-<!---->
-<!--    <div class="container">-->
-<!--        <div class="container1">-->
-<!--            <ul class="sban">-->
-<!--                <li><img src="/img/ban1.jpg">-->
-<!--                    <div class="title">air transport</div>-->
-<!--                </li>-->
-<!--                <li><img src="/img/ban2.jpg">-->
-<!--                    <div class="title">Miner</div>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-
-
     <div class="product-type-ajax">
         <h1 class="title"><span><?=Yii::t('home','Service')?></span></h1>
         <?php
@@ -37,13 +22,13 @@ $this->title = $config['WEB_SITE_TITLE'];
                 ?>
                 <li class="<?=$ct[$b]?>">
                     <p class="pic">
-                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                        <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
                             <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
                         </a>
                     </p>
                     <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
                     <div class="con">
-                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                        <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
                             <h2><?=$v['name']?></h2>
                         </a>
                     </div>
@@ -87,7 +72,8 @@ $this->title = $config['WEB_SITE_TITLE'];
         <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>
 
         <div class="container">
-            aboutklasdjf;laksdjf;
+            <div class="des"><?=$about['desc']?></div>
+            <div class="pic"></div>
         </div>
     </div>
 

@@ -88,6 +88,14 @@ ul,ol {list-style: none outside none;}
     background: #7ba5d7;
     clear: both;
 }
+.wrap .about .des { width: 48%;
+    float: left;}
+.wrap .about .pic { width: 36.625em;
+    float: left;
+    height:344px;
+    background: url(/img/pc.png) no-repeat center;
+}
+
 
 .wrap .container .news {}
 /*index banner*/
