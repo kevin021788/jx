@@ -6,76 +6,97 @@ $this->title = $config['WEB_SITE_TITLE'];
 // print_r($this);exit;
 // print_r($albums);exit;
 ?>
+
 <div class="page-index">
-  <!-- Title -->
-
   <!-- Banner -->
-<?php
-if(!empty($banner))
-{
-    ?>
+    <?= $this->render('banner',['banner'=>$banner])?>
 
-    <div class="banner">
-        <ul>
-            <?php foreach($banner as $v): ?>
+<!---->
+<!--    <div class="container">-->
+<!--        <div class="container1">-->
+<!--            <ul class="sban">-->
+<!--                <li><img src="/img/ban1.jpg">-->
+<!--                    <div class="title">air transport</div>-->
+<!--                </li>-->
+<!--                <li><img src="/img/ban2.jpg">-->
+<!--                    <div class="title">Miner</div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
 
-                <li><a href="javascript:void(0);"><img src="<?=$v['imgUrl']?>" alt=""></a></li>
+
+    <div class="product-type-ajax">
+        <h1 class="title"><span><?=Yii::t('home','Service')?></span></h1>
+        <?php
+        $ct = yiiParams('ct');
+        ?>
+        <ul class="f-cb">
+            <?php foreach($service as $k=>$v):
+                $b = $k%4;
+                ?>
+                <li class="<?=$ct[$b]?>">
+                    <p class="pic">
+                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                            <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
+                        </a>
+                    </p>
+                    <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
+                    <div class="con">
+                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                            <h2><?=$v['name']?></h2>
+                        </a>
+                    </div>
+                </li>
+
             <?php endforeach; ?>
         </ul>
-        <div class="count">
-            <?php foreach($banner as $v): ?>
-                <i></i>
+
+    </div>
+    <div class="clear"></div>
+
+    <div class="product-type-ajax">
+        <h1 class="title"><span><?=Yii::t('home','Product')?></span></h1>
+        <?php
+        $ct = yiiParams('ct');
+        ?>
+        <ul class="f-cb">
+            <?php foreach($product as $k=>$v):
+                $b = $k%4;
+                ?>
+                <li class="<?=$ct[$b]?>">
+                    <p class="pic">
+                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                            <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
+                        </a>
+                    </p>
+                    <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
+                    <div class="con">
+                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                            <h2><?=$v['name']?></h2>
+                        </a>
+                    </div>
+                </li>
+
             <?php endforeach; ?>
-        </div>
-        <a href="javascript:void(0);" class="prev">
-            <span></span>
-        </a>
-        <a href="javascript:void(0);" class="next">
-            <span></span>
-        </a>
+        </ul>
+
     </div>
 
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-        var num=0;
-        var timer=null;
-        var $Li=$(".banner ul li");
-        //鼠标经过清除定时器，鼠标离开执行
-        $(".banner").hover(function(){
-            clearInterval(timer);
-        },function(){
-            timer=setInterval(fnSwitch,3000);
-        })
-        //鼠标经过圆点
-        $(".count i").hover(function(){
-            num=$(this).index();
-            fnTab();
-        })
-        //左按钮无缝切换
-        $(".prev").click(function(){
-            num--;
-            if(num==-1){
-                num=$Li.length-1;
-            }
-            fnTab();
-        })
-        //右按钮无缝切换
-        $(".next").click(function(){
-            fnSwitch();
-        })
-        function fnSwitch(){
-            num++;
-            if(num==$Li.length){
-                num=0;
-            }
-            fnTab();
-        }
-        function fnTab(){
-            $Li.eq(num).show().siblings().hide();
-            $(".count i").eq(num).addClass("current").siblings().removeClass("current");
-        }
-    </script>
+    <div class="about">
+        <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>
+
+        <div class="container">
+            aboutklasdjf;laksdjf;
+        </div>
     </div>
-    <?php
-}
-?>
+
+
+    <div class="container">
+        <div class="news"></div>
+    </div>
+</div>
+
+
+
+</div>

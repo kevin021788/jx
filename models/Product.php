@@ -170,4 +170,14 @@ class Product extends \yii\db\ActiveRecord
     {
         return self::find()->where(['id' => $id, 'status' => 1])->asArray()->one();
     }
+
+    /**
+     * 首页产品
+     * @param int $limit
+     * @return array|ActiveRecord[]
+     */
+    public static function getIndexProductList($limit=6)
+    {
+        return self::find()->where(['status' => 1])->orderBy(['sort' => 'asc', 'id' => 'desc'])->limit($limit)->asArray()->all();
+    }
 }

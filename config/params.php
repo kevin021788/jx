@@ -15,4 +15,11 @@ return [
     'mdm.admin.configs' => [
       'defaultUserStatus' => 0, // 0 = inactive, 10 = active
     ],
+    'ct' => [
+        0 => 'one',
+        1 => 'two',
+        2 => 'the',
+        3=>'four',
+    ],
+
 ];

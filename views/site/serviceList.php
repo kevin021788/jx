@@ -4,12 +4,7 @@ use yii\widgets\LinkPager;
 
 $this->title = Yii::t('home','Service List');
 $this->params['breadcrumbs'][] = $this->title;
-$ct = [
-    0 => 'one',
-    1 => 'two',
-    2 => 'the',
-    3=>'four',
-];
+$ct = yiiParams('ct');
 ?>
 <div class="news w1180">
     <?= $this->render('banner',['banner'=>$banner])?>
