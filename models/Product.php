@@ -176,7 +176,7 @@ class Product extends \yii\db\ActiveRecord
      * @param int $limit
      * @return array|ActiveRecord[]
      */
-    public static function getIndexProductList($limit=6)
+    public static function getIndexList($limit=6)
     {
         return self::find()->where(['status' => 1])->orderBy(['sort' => 'asc', 'id' => 'desc'])->limit($limit)->asArray()->all();
     }

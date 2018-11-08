@@ -21,7 +21,7 @@ if(!function_exists('dropDown'))
                 '1'=> Yii::t('common','Activity'),
             ],
             'model'=> [
-                'home'=>'首页',
+//                'home'=>'首页',
                 'about'=>'关于我们',
                 'service'=>'服务项目',
                 'product'=>'产品展示',

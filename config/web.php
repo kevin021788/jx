@@ -100,14 +100,14 @@ $config = [
           ],
         ],
         //需要更改后台权限组时，注释掉menu以查看菜单
-//        'menus' => [
-//          'route' => null,
-//          'rule' => null,
-//          'permission' => null,
-//          'role' => null,
-//          'assignment' => null,
-//          'user' => null,
-//        ],
+        'menus' => [
+          'route' => null,
+          'rule' => null,
+          'permission' => null,
+          'role' => null,
+          'assignment' => null,
+          'user' => null,
+        ],
       ],
     ],
     'as access' => [

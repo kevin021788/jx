@@ -130,14 +130,16 @@ class Banner extends \yii\db\ActiveRecord
      */
     public static function getBanner($model='home')
     {
+        $bTable = Banner::tableName();
+        $cTable = Category::tableName();
         $sql = "SELECT 
                       * 
                 FROM 
-                      banner 
+                      {$bTable} 
                 LEFT JOIN 
-                      category ON cat_id=category.id 
+                      {$cTable} ON cat_id={$cTable}.id 
                 WHERE 
-                      category.name ='".$model."' AND model='banner' AND banner.status=1";
+                      {$cTable}.name ='".$model."' AND model='banner' AND {$bTable}.status=1 AND {$bTable}.language=".Language::getLanguageNum();
 
         return self::findBySql($sql)->asArray()->all();
     }

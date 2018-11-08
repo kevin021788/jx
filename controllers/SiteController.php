@@ -46,11 +46,13 @@ class SiteController extends Controller
         $config = Yii::$app->cache->get('config_'.\app\components\message\Language::getLanguageNum());
         $banner = \app\models\Banner::getBanner('home');
 
-        $product = Product::getIndexProductList(4);
+        $product = Product::getIndexList(4);
 
-        $service = Service::getIndexProductList(4);
+        $service = Service::getIndexList(4);
 
-        $about =  About::findOne(Language::getLanguageNum());
+        $about = About::findOne(Language::getLanguageNum());
+
+        $news = News::getIndexList(2);
 
         return $this->render('index', [
             'config' => $config,
@@ -58,7 +60,7 @@ class SiteController extends Controller
             'product' => $product,
             'service' => $service,
             'about' => $about,
-
+            'news' => $news,
         ]);
     }
 

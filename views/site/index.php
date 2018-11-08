@@ -1,10 +1,5 @@
 <?php
 $this->title = $config['WEB_SITE_TITLE'];
-//$this->keyword = $config['WEB_SITE_KEYWORD'];
-//$this->description = $config['WEB_SITE_DESCRIPTION'];
-//dd($config);
-// print_r($this);exit;
-// print_r($albums);exit;
 ?>
 
 <div class="page-index">
@@ -32,6 +27,7 @@ $this->title = $config['WEB_SITE_TITLE'];
                             <h2><?=$v['name']?></h2>
                         </a>
                     </div>
+                    <div class="clear"></div>
                 </li>
 
             <?php endforeach; ?>
@@ -70,16 +66,37 @@ $this->title = $config['WEB_SITE_TITLE'];
 
     <div class="about">
         <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>
-
         <div class="container">
             <div class="des"><?=$about['desc']?></div>
-            <div class="pic"></div>
+            <div class="pic"><img src="<?=empty($about['imgUrl'])?"/img/pc.png":$about['desc']?>"></div>
         </div>
     </div>
 
 
     <div class="container">
-        <div class="news"></div>
+        <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
+        <div class="news">
+            <ul class="f-cb news-list">
+                <?php foreach($news as $v): ?>
+                    <li>
+                        <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">
+                            <p class="pic">
+                                <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
+                                <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="picture">
+                            </p>
+                            <span class="con">
+    							<h3><?=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?></h3>
+    							<h2><?=$v['name']?></h2>
+    							<div class="font">
+                                    <?=$v['desc']?></div>
+    						</span>
+                        </a>
+                    </li>
+
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
     </div>
 </div>
 
