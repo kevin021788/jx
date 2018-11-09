@@ -28,24 +28,20 @@
                 <span></span>
             </a>
         </div>
-
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript">
             var num=0;
             var timer=null;
             var $Li=$(".banner ul li");
-            //鼠标经过清除定时器，鼠标离开执行
             $(".banner").hover(function(){
                 clearInterval(timer);
             },function(){
                 timer=setInterval(fnSwitch,3000);
             })
-            //鼠标经过圆点
             $(".count i").hover(function(){
                 num=$(this).index();
                 fnTab();
             })
-            //左按钮无缝切换
             $(".prev").click(function(){
                 num--;
                 if(num==-1){
@@ -53,7 +49,6 @@
                 }
                 fnTab();
             })
-            //右按钮无缝切换
             $(".next").click(function(){
                 fnSwitch();
             })
