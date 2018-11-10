@@ -505,7 +505,7 @@ body {
     height: 70px;
     display: block;
 }
-.footer .footer-nav .tool {width: 67em; margin: 0 auto;}
+.footer .footer-nav .tool {/*width: 67em;*/ margin: 0 auto; padding-left: 0; padding-right: 0}
 .footer .footer-nav .tool li {
     float: left;
     background: url(../img/footerbg.jpg) repeat-x;
@@ -513,6 +513,7 @@ body {
     list-style: none;
     font-weight: bold;
     padding: 0 0.8em 0 0.8em;
+    overflow: hidden;
 }
 .footer .footer-nav .tool li i { width: 46px; height: 48px;
     display: block;
@@ -533,12 +534,12 @@ body {
 }
 .footer .footer-logo {
     text-align: center;
-}
-.footer .footer-logo img {
-    width: auto !important;
     height: 12em !important;
-    /*background: url(../img/footer-logo.png) center no-repeat;*/
+    display: block;
+    background: url(../img/footer-logo.png) center no-repeat;
+    margin: 10px 0;
 }
+
 
 .footer .footer-copyright {
     background: #000000;

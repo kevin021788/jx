@@ -78,16 +78,17 @@ if(empty($config))
 
 <footer class="footer">
     <div class="footer-nav">
-        <ul class="tool">
+        <ul class="tool container">
             <li class="col-xs-12 col-md-3"><i class="tel"></i><?= Html::encode($config['WEB_SITE_TEL'])?></li>
             <li class="col-xs-12 col-md-3"><i class="mail"></i><?= Html::encode($config['WEB_SITE_MAIL'])?></li>
             <li class="col-xs-12 col-md-6"><i class="address"></i><?= Html::encode($config['WEB_SITE_ADDRESS'])?></li>
         </ul>
     </div>
     <div class="clear"></div>
-    <div class="footer-logo">
-        <img src="/img/footer-logo.png">
+    <div class="footer-logo ol-xs-12 col-md-12">
+<!--        <img src="/img/footer-logo.png">-->
     </div>
+    <div class="clear"></div>
     <div class="footer-copyright"><?= Html::encode($config['WEB_SITE_COPYRIGHT'])?></div>
 </footer>
 <?php $this->endBody() ?>
