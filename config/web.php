@@ -4,6 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name' => 'Radio International.CRI.',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'index',
@@ -41,6 +42,7 @@ $config = [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'fileMap' => [
                         'common' => 'common.php', //后台文件语言包
+                        'home' => 'home.php', //前台文件语言包
                     ],
                     'basePath' => '@webroot/components/message', //配置语言文件路径，现在采用默认的，就可以不配置这个
                 ],
@@ -98,25 +100,27 @@ $config = [
           ],
         ],
         //需要更改后台权限组时，注释掉menu以查看菜单
-//        'menus' => [
-//          'route' => null,
-//          'rule' => null,
-//          'permission' => null,
-//          'role' => null,
-//          'assignment' => null,
-//          'user' => null,
-//        ],
+        'menus' => [
+          'route' => null,
+          'rule' => null,
+          'permission' => null,
+          'role' => null,
+          'assignment' => null,
+          'user' => null,
+        ],
       ],
     ],
     'as access' => [
       'class' => 'mdm\admin\components\AccessControl',
-      'allowActions' => [
-        'site/*',
-        'index/*',
-        'admin/user/*',
+        'allowActions' => [
+            'site/*',
+            'lang/*',
+            'index/*',
+            'admin/user/*',
 //         'gii/*',
-//         'admin/*',
-      ]
+//            'admin/*',
+        ],
+
     ],
     'params' => $params,
 ];

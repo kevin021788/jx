@@ -25,6 +25,7 @@ if(!empty($imgUrl)) {
         'extra' => ['imgurl' => $imgUrl]
     ];
 }
+$category = isset($related['category'])?ArrayHelper::getValue($related['category'],'id'):'';//单选时用字符值
 ?>
 
 <div class="banner-form">
@@ -41,7 +42,16 @@ if(!empty($imgUrl)) {
         'attributes' => [
 
             'name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=> Yii::t('common','Please input name ...'), 'maxlength'=>255]],
-
+            'cat_id' => ['type'=> Form::INPUT_WIDGET, 'widgetClass'=> Select2::className(), 'options'=>[
+                'name' => 'cat_id',
+                'value' => $category,
+                'data' => \app\models\Category::getCategory($this->context->id),
+                'options' => ['placeholder' => Yii::t('common','Select a Category ...')],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'multiple' => false,//多选时为TRUE，单选时为FALSE
+                ]
+            ]],
             'imgUrl' => ['type'=> Form::INPUT_WIDGET, 'widgetClass'=>'\kartik\file\FileInput', 'options'=>[
                 'name' => 'imgUrl',
                 'options' => ['accept' => 'image/*'],

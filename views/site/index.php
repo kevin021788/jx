@@ -1,72 +1,105 @@
 <?php
-$this->title = $system['title'];
-// print_r($newses);exit;
-// print_r($albums);exit;
+$this->title = $config['WEB_SITE_TITLE'];
 ?>
-<div class="page-index">
-  <!-- Title -->
-  <div>
-    <img src="<?=$system['logo']?>" class="index-title">
-  </div>
-  <!-- Banner -->
-  <div class="index-banner">
-    <div class="swiper-container" data-space-between='5' data-pagination='.swiper-pagination' data-speed="600" data-autoplay="2000">
-      <div class="swiper-wrapper">
-        <?php foreach($sliders as $slider): ?>
-        <div class="swiper-slide"><a href="<?=$slider['adurl']?>" class="external"><img src="<?=$slider['imgurl']?>"></a></div>
-        <?php endforeach; ?>
-      </div>
-      <!-- <div class="swiper-pagination swiper-pagination-white"></div> -->
-    </div>
-  </div>
-  <!-- 新闻 -->
-  <div class="index-news">
 
-    <div class="list-block media-list">
-      <ul>
-        <div class="news-title">
-          <span class="title-prefix"></span><b>新闻中心</b>
-          <span class="title-more"><a href="/site/news-list">更多</a></span>
-        </div>
-        <?php foreach($newses as $news): ?>
-        <li>
-          <a href="/site/news?id=<?=$news['id']?>" class="item-link">
-            <div class="item-content">
-              <div class="item-media"><img src="<?=$news['imgurl']?>" style="width:86px;height:86px;"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title"><?=$news['title']?></div>
-                </div>
-                <div class="item-subtitle"><?=$news['summary']?></div>
-              </div>
-            </div>
-          </a>
-        </li>
-      <?php endforeach; ?>
-      </ul>
+<div class="page-index">
+  <!-- Banner -->
+    <?= $this->render('banner',['banner'=>$banner])?>
+
+    <div class="product-type-ajax">
+        <h1 class="title"><span><?=Yii::t('home','Service Item')?></span></h1>
+        <?php
+        $ct = yiiParams('ct');
+        ?>
+        <ul class="f-cb">
+            <?php foreach($service as $k=>$v):
+                $b = $k%4;
+                ?>
+                <li class="<?=$ct[$b]?>">
+                    <p class="pic">
+                        <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
+                            <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
+                        </a>
+                    </p>
+                    <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
+                    <div class="con">
+                        <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
+                            <h2><?=$v['name']?></h2>
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+
+            <?php endforeach; ?>
+        </ul>
+
     </div>
-  </div>
-  <!-- 影集 -->
-  <div class="inimg">
-    <div class="list-block">
-      <ul>
-        <div class="news-title">
-          <span class="title-prefix2"></span><b>赛事影集</b>
-          <span class="title-more"><a href="/site/album-list">更多</a></span>
-        </div>
-        <div class="item-inner">
-          <?php foreach($albums as $album): ?>
-          <li>
-            <div id="album_<?=$album['id']?>" class="item-photo">
-              <a href="javascript:;" class="item-link">
-                <img src="<?=$album['imgurl']?>">
-                <div class="item-subtitle"><?=$album['title']?></div>
-              </a>
-            </div>
-          </li>
-        <?php endforeach; ?>
-        </div>
-      </ul>
+    <div class="clear"></div>
+
+    <div class="product-type-ajax">
+        <h1 class="title"><span><?=Yii::t('home','Product Display')?></span></h1>
+        <?php
+        $ct = yiiParams('ct');
+        ?>
+        <ul class="f-cb">
+            <?php foreach($product as $k=>$v):
+                $b = $k%4;
+                ?>
+                <li class="<?=$ct[$b]?>">
+                    <p class="pic">
+                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                            <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
+                        </a>
+                    </p>
+                    <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
+                    <div class="con">
+                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                            <h2><?=$v['name']?></h2>
+                        </a>
+                    </div>
+                </li>
+
+            <?php endforeach; ?>
+        </ul>
+
     </div>
-  </div>
+
+    <div class="about">
+        <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>
+        <div class="container">
+            <div class="des"><?=$about['desc']?></div>
+            <div class="pic"><img src="<?=empty($about['imgUrl'])?"/img/pc.png":$about['desc']?>"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
+        <div class="news">
+            <ul class="f-cb news-list">
+                <?php foreach($news as $v): ?>
+                    <li>
+                        <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">
+                            <p class="pic">
+                                <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
+                                <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="picture">
+                            </p>
+                            <span class="con">
+    							<h3><?=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?></h3>
+    							<h2><?=$v['name']?></h2>
+    							<div class="font">
+                                    <?=$v['desc']?></div>
+    						</span>
+                        </a>
+                    </li>
+
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+
 </div>

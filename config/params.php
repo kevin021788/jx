@@ -1,17 +1,25 @@
 <?php
 
 return [
-    'imgHost' => 'http://jx.com',
+    'imgHost' => 'http://jx.ziranren.cc',
     'adminEmail' => 'admin@example.com',
+    'uploadAboutPath' => '/upload/about/',
+    'uploadContactPath' => '/upload/contact/',
     'uploadNewsPath' => '/upload/news/',
-    'uploadAlbumPath' => '/upload/album/',
-    'uploadAlbumPicsPath' => '/upload/albumpics/',
-    'uploadTeamPath' => '/upload/team/',
-    'uploadTeamMemberPath' => '/upload/teammember/',
-    'uploadCompetitionPath' => '/upload/competition/',
-    'uploadShopPath' => '/upload/shop/',
-    'uploadSliderPath' => '/upload/slider/',
+    'uploadProductPath' => '/upload/product/',
+    'uploadServicePath' => '/upload/service/',
+    'uploadBannerPath' => '/upload/banner/',
+    'newsPageSize' => 5,
+    'productPageSize' => 8,
+    'servicePageSize' => 8,
     'mdm.admin.configs' => [
       'defaultUserStatus' => 0, // 0 = inactive, 10 = active
     ],
+    'ct' => [
+        0 => 'one',
+        1 => 'two',
+        2 => 'the',
+        3=>'four',
+    ],
+
 ];

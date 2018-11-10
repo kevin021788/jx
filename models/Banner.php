@@ -14,6 +14,7 @@ use yii\db\ActiveRecord;
  * This is the model class for table "banner".
  *
  * @property integer $id
+ * @property integer $cat_id
  * @property string $name
  * @property string $imgUrl
  * @property string $desc
@@ -26,6 +27,7 @@ use yii\db\ActiveRecord;
  */
 class Banner extends \yii\db\ActiveRecord
 {
+    public $categoryId;
     /**
      * @inheritdoc
      */
@@ -73,6 +75,14 @@ class Banner extends \yii\db\ActiveRecord
         ];
     }
     /**
+     * 分类关联
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'cat_id']);
+    }
+    /**
      * 替换图片前缀
      * @param $event
      */
@@ -87,7 +97,7 @@ class Banner extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sort', 'status', 'created_at', 'updated_at', 'language'], 'integer'],
+            [['cat_id', 'sort', 'status', 'created_at', 'updated_at', 'language'], 'integer'],
             [['name'], 'string', 'max' => 50],
             [['imgUrl', 'desc', 'url'], 'string', 'max' => 255],
         ];
@@ -100,6 +110,7 @@ class Banner extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'cat_id' => Yii::t('home','Cat ID'),
             'name' => 'Name',
             'imgUrl' => 'Img Url',
             'desc' => 'Desc',
@@ -110,5 +121,26 @@ class Banner extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
             'language' => 'Language',
         ];
+    }
+
+    /**
+     * 获取BANNER图片
+     * @param string $model
+     * @return array|ActiveRecord[]
+     */
+    public static function getBanner($model='home')
+    {
+        $bTable = Banner::tableName();
+        $cTable = Category::tableName();
+        $sql = "SELECT 
+                      * 
+                FROM 
+                      {$bTable} 
+                LEFT JOIN 
+                      {$cTable} ON cat_id={$cTable}.id 
+                WHERE 
+                      {$cTable}.name ='".$model."' AND model='banner' AND {$bTable}.status=1 AND {$bTable}.language=".Language::getLanguageNum();
+
+        return self::findBySql($sql)->asArray()->all();
     }
 }

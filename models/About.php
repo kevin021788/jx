@@ -91,17 +91,17 @@ class About extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'slug' => 'Slug',
-            'imgUrl' => 'Img Url',
-            'desc' => 'Desc',
-            'content' => 'Content',
-            'sort' => 'Sort',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'language' => 'Language',
+            'id' => Yii::t('home','ID'),
+            'name' => Yii::t('home','Name'),
+            'slug' => Yii::t('home','Slug'),
+            'imgUrl' => Yii::t('home','Img Url'),
+            'desc' => Yii::t('home','Desc'),
+            'content' => Yii::t('home','Content'),
+            'sort' => Yii::t('home','Sort'),
+            'status' => Yii::t('home','Status'),
+            'created_at' => Yii::t('home','Created At'),
+            'updated_at' => Yii::t('home','Updated At'),
+            'language' => Yii::t('home','Language'),
         ];
     }
 }

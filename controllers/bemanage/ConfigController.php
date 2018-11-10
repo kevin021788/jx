@@ -2,6 +2,7 @@
 
 namespace app\controllers\bemanage;
 
+use app\components\message\Language;
 use Yii;
 use app\models\Config;
 use app\models\ConfigSearch;
@@ -94,6 +95,7 @@ class ConfigController extends Controller
         $model = new Config();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->cache->delete('config_' . Language::getLanguageNum());
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -113,6 +115,7 @@ class ConfigController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->cache->delete('config_' . Language::getLanguageNum());
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

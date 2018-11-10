@@ -8,6 +8,7 @@ use yii\behaviors\AttributeBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\data\Pagination;
 use yii\db\ActiveRecord;
 /**
  * This is the model class for table "product".
@@ -113,18 +114,70 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'cat_id' => 'Cat ID',
-            'name' => 'Name',
-            'slug' => 'Slug',
-            'imgUrl' => 'Img Url',
-            'desc' => 'Desc',
-            'content' => 'Content',
-            'sort' => 'Sort',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'language' => 'Language',
+            'id' => Yii::t('home','ID'),
+            'cat_id' => Yii::t('home','Cat ID'),
+            'name' => Yii::t('home','Name'),
+            'slug' => Yii::t('home','Slug'),
+            'imgUrl' => Yii::t('home','Img Url'),
+            'desc' => Yii::t('home','Desc'),
+            'content' => Yii::t('home','Content'),
+            'sort' => Yii::t('home','Sort'),
+            'status' => Yii::t('home','Status'),
+            'created_at' => Yii::t('home','Created At'),
+            'updated_at' => Yii::t('home','Updated At'),
+            'language' => Yii::t('home','Language'),
         ];
+    }
+
+    /**
+     * 获取列表数据
+     * @return array
+     */
+    public static function getList()
+    {
+        try{
+            $db = \Yii::$app->db;
+            $catId = Yii::$app->request->get('cat_id', '');
+            $where = '';
+            if(is_numeric($catId))
+            {
+                $where = ' AND cat_id='.$catId;
+            }
+            $count = $db->createCommand('SELECT COUNT(*) as count FROM '.self::tableName().' WHERE language='.Language::getLanguageNum().$where)->queryOne();
+            if($count)
+            {
+                $pages = new Pagination(['totalCount' => $count['count'], 'defaultPageSize' => yiiParams('productPageSize')]);
+                $list = $db->createCommand("SELECT * FROM ".self::tableName()." WHERE language=".Language::getLanguageNum().$where." LIMIT ".$pages->offset.",".$pages->limit)->queryAll();
+                $ret = ['success'=>true,'pages'=>$pages,'list'=>$list];
+            }
+            else
+            {
+                throw new \Exception(Yii::t('home','Query failure'));
+            }
+        }catch (\Exception $e)
+        {
+            $ret = ['success'=>false,'msg'=>$e->getMessage()];
+        }
+        return $ret;
+    }
+
+    /**
+     * 返回详情数据
+     * @param $id
+     * @return array|null|ActiveRecord
+     */
+    public static function getDetail($id)
+    {
+        return self::find()->where(['id' => $id, 'status' => 1])->asArray()->one();
+    }
+
+    /**
+     * 首页产品
+     * @param int $limit
+     * @return array|ActiveRecord[]
+     */
+    public static function getIndexList($limit=6)
+    {
+        return self::find()->where(['status' => 1])->orderBy(['sort' => 'asc', 'id' => 'desc'])->limit($limit)->asArray()->all();
     }
 }

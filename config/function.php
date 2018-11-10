@@ -20,10 +20,28 @@ if(!function_exists('dropDown'))
                 '0'=> Yii::t('common','UnActivity'),
                 '1'=> Yii::t('common','Activity'),
             ],
-//            'is_hot'=> [
-//                '0'=>'否',
-//                '1'=>'是',
-//            ],
+            'model'=> [
+//                'home'=>'首页',
+                'about'=>'关于我们',
+                'service'=>'服务项目',
+                'product'=>'产品展示',
+                'news'=>'新闻中心',
+                'contact'=>'联系我们',
+                'banner'=>'轮播图',
+            ],
+            /*
+                            '0'=>'home',
+                '1'=>'about',
+                '2'=>'service',
+                '3'=>'product',
+                '4'=>'news',
+                '5'=>'contact',
+                           'home'=>'首页',
+                'about'=>'关于我们',
+                'service'=>'服务项目',
+                'product'=>'产品展示',
+                'news'=>'新闻中心',
+                'contact'=>'联系我们',*/
             //有新的字段要实现下拉规则，可像上面这样进行添加
             // ......
         ];
@@ -63,6 +81,13 @@ if(!function_exists('getSavePath')) {
             return $dir;
         }
 
+    }
+}
+if(!function_exists('getWebConfig'))
+{
+    function getWebConfig()
+    {
+        return yii\helpers\ArrayHelper::map(\app\models\Config::find()->select(['name','value'])->where(['language'=>\app\components\message\Language::getLanguageNum()])->asArray()->all(), 'name', 'value');
     }
 }
 

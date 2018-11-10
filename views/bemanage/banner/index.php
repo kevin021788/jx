@@ -37,6 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ],
             [
+                'attribute' => 'categoryId',
+                'value' => 'category.name',
+                'filter' => \app\models\Category::getCategory($this->context->id),
+            ],
+            [
                 'attribute' => 'url',
                 'class' => 'kartik\grid\EditableColumn',
                 'editableOptions'=>[

@@ -20,7 +20,7 @@ class BannerSearch extends Banner
     {
         return [
             [['status'], 'integer'],
-            [['name', 'desc', 'created_at'], 'safe'],
+            [['name', 'desc', 'created_at', 'categoryId'], 'safe'],
         ];
     }
 
@@ -64,7 +64,12 @@ class BannerSearch extends Banner
             'id' => $this->id,
             "{$tableName}.status" => $this->status,
         ]);
-
+        if($this->categoryId)
+        {
+            $query->andFilterWhere([
+                'category.id' => $this->categoryId,
+            ]);
+        }
         if($this->created_at)
         {
             $beginTime = strtotime($this->created_at);
@@ -75,7 +80,7 @@ class BannerSearch extends Banner
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(["{$tableName}.language" => Language::getLanguageNum()])
             ->andFilterWhere(['like', 'desc', $this->desc]);
-
+        $query->joinWith('category');
 
         return $dataProvider;
     }

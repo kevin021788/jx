@@ -29,7 +29,16 @@ use app\models\Category;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'model')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'model')->widget(Select2::className(),[
+        'data' => dropDown('model'),
+        'options' => ['placeholder' => Yii::t('common','Select a Model ...')],
+        'pluginOptions' => [
+            'allowClear' => true,
+            'multiple' => false
+        ],
+    ]) ?>
+
+
     <? if($model->isNewRecord) $model->sort = 0; ?>
     <?= $form->field($model, 'sort')->widget(TouchSpin::className(),[
         'pluginOptions' => [
