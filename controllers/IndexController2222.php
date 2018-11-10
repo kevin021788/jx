@@ -8,7 +8,7 @@ use yii\web\Session;
 use app\models\Teamleader;
 use app\models\Share;
 
-class IndexController extends Controller
+class IndexController2222 extends Controller
 {
   private $token = 'weixingolf2016s';
   //private $appid = 'wxe020394f5ef6d567';//订阅号
