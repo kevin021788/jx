@@ -8,7 +8,7 @@ use yii\web\Session;
 use app\models\Teamleader;
 use app\models\Share;
 
-class IndexController2222 extends Controller
+class IndexController extends Controller
 {
 
   public function actionIndex()
