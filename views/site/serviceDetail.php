@@ -1,8 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-
-$this->title = Yii::t('home','Service List');
+$this->title = $model['name'].' | '.Yii::t('home','Service List').' | '.$this->params['config']['WEB_SITE_TITLE'];
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['service']];
 $this->params['breadcrumbs'][] = $model['name'];
 ?>
@@ -22,7 +21,7 @@ $this->params['breadcrumbs'][] = $model['name'];
                 {
                     if(empty($v)) continue;
                     ?>
-                    <li class="<?=$catId==$v['id']?'cur':''?>"><a href="<?=yiiUrl('/site/product?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                    <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-2 text-center"><a href="<?=yiiUrl('/site/service?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
                     <?php
                 }
                 ?>
@@ -34,7 +33,7 @@ $this->params['breadcrumbs'][] = $model['name'];
     <div class="news-info-title">
         <h2><?=$model['name']?></h2>
         <div class="box f-cb">
-            <a href="javascript:;" class="data fl"><?= empty($model['created_at'])?'':date('Y-m-d H:i:s', $model['created_at'])?></a>
+            <a href="javascript:;" class="data fl"><?= empty($model['created_at'])?'':date('Y-m-d', $model['created_at'])?></a>
         </div>
     </div>
     <div class="news-info-con">

@@ -56,10 +56,12 @@ if(empty($config))
             ['label' => Yii::t('home','Product Display'), 'url' => ['/site/product']],
             ['label' => Yii::t('home','News'), 'url' => ['/site/news']],
             ['label' => Yii::t('home','Contact Us'), 'url' => ['/site/contact']],
-            ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-'.(\app\components\message\Language::getLanguageNum()==2 ? 'en-US' : 'fa') .'"></i>'.Yii::t('home',(\app\components\message\Language::getLanguageNum()==2) ? 'English' : 'Farsi' ), 'items' =>[
-                    ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-en-US"></i>'.Yii::t('home','English'), 'url' => ['/lang/language?lang=en-US']],
+            ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-'.(\app\components\message\Language::getLanguageNum()==2 ? 'en-US' : 'fa') .'"></i>'.Yii::t('home',(\app\components\message\Language::getLanguageNum()==2) ? 'English' : 'Farsi' ),
+                'items' => (\app\components\message\Language::getLanguageNum()==2)?[
                     ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-fa"></i>'.Yii::t('home','Farsi'), 'url' => ['/lang/language?lang=fa']],
-                ]
+                ]:[
+                    ['label' => '<i style="vertical-align: middle;" class="lang-flag flag-en-US"></i>'.Yii::t('home','English'), 'url' => ['/lang/language?lang=en-US']],
+                ],
             ],
         ],
     ]);
@@ -77,11 +79,12 @@ if(empty($config))
 <footer class="footer">
     <div class="footer-nav">
         <ul class="tool">
-            <li class="tel"><?= Html::encode($config['WEB_SITE_TEL'])?></li>
-            <li class="mail"><?= Html::encode($config['WEB_SITE_MAIL'])?></li>
-            <li class="address"><?= Html::encode($config['WEB_SITE_ADDRESS'])?></li>
+            <li class="col-xs-12 col-md-3"><i class="tel"></i><?= Html::encode($config['WEB_SITE_TEL'])?></li>
+            <li class="col-xs-12 col-md-3"><i class="mail"></i><?= Html::encode($config['WEB_SITE_MAIL'])?></li>
+            <li class="col-xs-12 col-md-6"><i class="address"></i><?= Html::encode($config['WEB_SITE_ADDRESS'])?></li>
         </ul>
     </div>
+    <div class="clear"></div>
     <div class="footer-logo">
         <img src="/img/footer-logo.png">
     </div>

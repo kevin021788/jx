@@ -10,7 +10,7 @@
     {
         ?>
         <!-- Banner -->
-        <div class="banner">
+        <div class="banner col-xs-12 col-sm-12">
             <ul>
                 <?php foreach($banner as $v): ?>
                     <li><a href="javascript:void(0);"><img src="<?=$v['imgUrl']?>" alt=""></a></li>
@@ -28,6 +28,7 @@
                 <span></span>
             </a>
         </div>
+        <div class="clear"></div>
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript">
             var num=0;
