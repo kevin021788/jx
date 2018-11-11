@@ -16,7 +16,7 @@ ul,ol {list-style: none outside none;}
     position: relative;
 }
 /*index*/
-.page-index { margin-top: -3em;}
+
 
 .page-index .about h1.title span {
     padding:0 1em;
@@ -147,7 +147,7 @@ ul,ol {list-style: none outside none;}
 /*index banner*/
 .page-index .banner{/*width:80em;*/height:30em;margin:auto;position:relative;overflow:hidden;/* background: url(/img/banner.jpg) no-repeat*/}
 .page-index .banner ul{margin:0;padding:0;overflow:hidden;height:30em;position:absolute;left:0;}
-.page-index .banner .prev,.page-index .banner .next{position:absolute;top:13.75em;width:2.81em;height:4.5em;background:rgba(76,76,76,0.3);}
+.page-index .banner .prev,.page-index .banner .next{position:absolute;top:11.75em;width:2.81em;height:4.5em;background:rgba(76,76,76,0.3);}
 .page-index .banner .prev span,.page-index .banner .next span{display:block;width:1.37em;height:36px;margin:15px auto 0;}
 
 /*banner*/
