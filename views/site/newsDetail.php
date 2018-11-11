@@ -4,7 +4,7 @@
 $this->title = $model['name'].' | '.Yii::t('home','News List').' | '.$this->params['config']['WEB_SITE_TITLE'];
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['news']];
 $this->params['breadcrumbs'][] = $model['name'];
-
+$this->context->action->id = explode('-', $this->context->action->id)[0];
 ?>
 
 <div class="news-info w1180">
@@ -16,14 +16,15 @@ $this->params['breadcrumbs'][] = $model['name'];
     {
     ?>
     <div class="category">
-        <ul>
+        <div class="col-xs-12 col-sm-3"></div>
+        <ul class="col-xs-12 col-sm-6">
             <?php
             $catId = $model['cat_id'];
             foreach ($category as $k=>$v)
             {
                 if(empty($v)) continue;
             ?>
-                <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-2 text-center"><a href="<?=yiiUrl('/site/news?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-6 text-center"><a href="<?=yiiUrl('/site/news?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
             <?php
             }
             ?>

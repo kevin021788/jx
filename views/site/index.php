@@ -114,7 +114,7 @@ $ct = yiiParams('ct');
                                 <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="picture">
                             </p>
                             <span class="con col-xs-12 col-sm-8">
-    							<h3><?=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?></h3>
+<!--    							<h3>--><?//=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?><!--</h3>-->
     							<h2><?=$v['name']?></h2>
     							<div class="font">
                                     <?=$v['desc']?></div>
@@ -124,10 +124,17 @@ $ct = yiiParams('ct');
 
                 <?php endforeach; ?>
             </ul>
+            <div class="col-xs-3 col-md-5"></div>
+            <div class="col-xs-2 col-md-2"><a class="more" href="<?=yiiUrl('site/news')?>"><?=Yii::t('home','More')?></a></div>
+            <div class="col-xs-5 col-md-5"></div>
+            <div class="clear"></div>
 
         </div>
+        <div class="clear"></div>
     </div>
+    <div class="clear"></div>
 </div>
+<div class="clear"></div>
 
 
 

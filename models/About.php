@@ -98,7 +98,7 @@ class About extends \yii\db\ActiveRecord
             'slug' => Yii::t('home','Slug'),
             'imgUrl' => Yii::t('home','Img Url'),
             'video' => Yii::t('home','Video'),
-            'hkey' => Yii::t('home','hHey'),
+            'hkey' => Yii::t('home','Home Keyword'),
             'desc' => Yii::t('home','Desc'),
             'content' => Yii::t('home','Content'),
             'sort' => Yii::t('home','Sort'),

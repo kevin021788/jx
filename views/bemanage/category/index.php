@@ -38,17 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ],
             ],
-            [
-                'attribute' => 'model',
-                'class' => 'kartik\grid\EditableColumn',
-                'editableOptions'=>[
-                    'asPopover' => false,
-                    'inputType'=> Editable::INPUT_TEXTAREA,//只需添加如下代码
-                    'options' => [
-                        'rows' => 4,
-                    ],
-                ],
-            ],
+            'model',
             [
                 'attribute' => 'sort',
                 'class' => 'kartik\grid\EditableColumn',

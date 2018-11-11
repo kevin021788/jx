@@ -27,9 +27,10 @@ ul,ol {list-style: none outside none;}
 .page-index .about .key {}
 .page-index .about .key li { padding: 10px; float: left; display: block; background: #9ca6b2; margin: 5px 10px; color:#fff; font-weight: bold;}
 .page-index .about .more-btn { margin:0 0 20px 0;}
-.page-index .about .more {
+.page-index .more {
     padding:10px 20px 10px 20px;
     margin:10px;
+    font-weight: bold;
     color: #FFFFFF !important;
     background: #343333;
     -moz-border-radius: 2em;
@@ -142,7 +143,7 @@ ul,ol {list-style: none outside none;}
 .wrap .about .pic img { width:100%; height: 100%; padding-bottom: 2em;}
 
 
-.wrap .container .news {}
+.wrap .container .news { margin-bottom: 30px;}
 /*index banner*/
 .page-index .banner{/*width:80em;*/height:30em;margin:auto;position:relative;overflow:hidden;/* background: url(/img/banner.jpg) no-repeat*/}
 .page-index .banner ul{margin:0;padding:0;overflow:hidden;height:30em;position:absolute;left:0;}
@@ -276,6 +277,7 @@ h1.title span {
 .news-list li{
     /*width: 100%;*/
     float: left;
+    border-left: 2px solid #746f6f;
     border-bottom: 2px solid #e6e6e6;
 }
 .news-list li a{

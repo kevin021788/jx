@@ -14,14 +14,15 @@ $ct = yiiParams('ct');
     {
         ?>
         <div class="category">
-            <ul>
+            <div class="col-xs-12 col-sm-3"></div>
+            <ul class="col-xs-12 col-sm-6">
                 <?php
                 $catId = Yii::$app->request->get('cat_id', '');
                 foreach ($category as $k=>$v)
                 {
                     if(empty($v)) continue;
                     ?>
-                    <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-2 text-center"><a href="<?=yiiUrl('/site/product?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                    <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-6 text-center"><a href="<?=yiiUrl('/site/product?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
                     <?php
                 }
                 ?>

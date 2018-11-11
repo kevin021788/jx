@@ -14,14 +14,15 @@ $ct = yiiParams('ct');
     {
         ?>
         <div class="category">
-            <ul>
+            <div class="col-xs-12 col-sm-3"></div>
+            <ul class="col-xs-12 col-sm-6">
                 <?php
                 $catId = Yii::$app->request->get('cat_id', '');
                 foreach ($category as $k=>$v)
                 {
                     if(empty($v)) continue;
                     ?>
-                    <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-2 text-center"><a href="<?=yiiUrl('/site/service?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                    <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-6 text-center"><a href="<?=yiiUrl('/site/service?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
                     <?php
                 }
                 ?>
@@ -33,7 +34,7 @@ $ct = yiiParams('ct');
     <div class="clear"></div>
     <ul class="f-cb news-list">
         <?php foreach($list as $v): ?>
-            <li class="nbd col-xs-12 col-sm-6">
+            <li class="service-li col-xs-12 col-sm-6">
                 <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
                     <p class="pic col-xs-12 col-sm-3">
                         <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
