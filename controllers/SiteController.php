@@ -263,25 +263,6 @@ class SiteController extends Controller
 
     //------------------------------------------------------------------------//
 
-    //仅用于测试
-    public function actionTest()
-    {
-      //Share::deleteAll(['nickname'=>NULL]);
-      //return $this->renderPartial('test');
-    }
-
-    //公众号关注订阅
-    public function actionSubscribe()
-    {
-      return $this->renderPartial('subscribe');
-    }
-
-    public function actionLogout()
-    {
-      Yii::$app->user->logout();
-      return $this->redirect('/admin/user/login');
-    }
-
     //错误显示页
     public function actions()
     {
