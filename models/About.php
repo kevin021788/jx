@@ -77,11 +77,11 @@ class About extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content'], 'string'],
+            [['content', 'desc'], 'string'],
             [['status', 'sort', 'created_at', 'updated_at', 'language'], 'integer'],
             [['name'], 'string', 'max' => 50],
             [['slug'], 'string', 'max' => 250],
-            [['imgUrl', 'desc'], 'string', 'max' => 255],
+            [['imgUrl'], 'string', 'max' => 255],
         ];
     }
 

@@ -27,15 +27,4 @@ class LangController extends Controller
         //切换完语言哪来的返回到哪里
         $this->redirect($url);
     }
-
-    //语言切换
-    public function actionChange(){
-        $language=  \Yii::$app->request->get('lang');
-        if(isset($language)){
-            Yii::$app->session['lang'] = $language;
-        }
-        $url = \Yii::$app->request->headers['Referer'];
-        //切换完语言哪来的返回到哪里
-        $this->redirect($url);
-    }
 }

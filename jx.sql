@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `about` (
   `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Name',
   `slug` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Slug',
   `imgUrl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'imgUrl',
-  `desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Description',
+  `desc` text COLLATE utf8_unicode_ci COMMENT 'Description',
   `content` text COLLATE utf8_unicode_ci COMMENT 'Content',
   `sort` int(11) DEFAULT '0' COMMENT 'Sort',
   `status` int(2) DEFAULT '1' COMMENT 'Status：0-UnActive，1-Active',

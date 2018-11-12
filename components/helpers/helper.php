@@ -74,7 +74,7 @@ if (!function_exists('app')) {
  * dd($user->toArray(),$comment->toArray());
  */
 if (!function_exists('dd')) {
-    function dd(...$param)
+    function dd($param)
     {
         foreach ($param as $p)  {
             \yii\helpers\VarDumper::dump($p, 10, true);

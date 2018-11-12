@@ -2,7 +2,7 @@
 use yii\widgets\LinkPager;
 /* @var $this yii\web\View */
 
-$this->title = Yii::t('home','Service List');
+$this->title = Yii::t('home','Service List').' | '.$this->params['config']['WEB_SITE_TITLE'];
 $this->params['breadcrumbs'][] = $this->title;
 $ct = yiiParams('ct');
 ?>
@@ -21,7 +21,7 @@ $ct = yiiParams('ct');
                 {
                     if(empty($v)) continue;
                     ?>
-                    <li class="<?=$catId==$v['id']?'cur':''?>"><a href="<?=yiiUrl('/site/service?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
+                    <li class="<?=$catId==$v['id']?'cur':''?> col-xs-6 col-sm-2 text-center"><a href="<?=yiiUrl('/site/service?cat_id='.$v['id'])?>"><?=$v['name']?></a></li>
                     <?php
                 }
                 ?>
@@ -39,7 +39,7 @@ $ct = yiiParams('ct');
             $b = $k%4;
             ?>
 
-            <li class="<?=$ct[$b]?>">
+            <li class="<?=$ct[$b]?> col-xs-12 col-sm-3">
                 <p class="pic">
                     <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
                         <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
@@ -59,4 +59,7 @@ $ct = yiiParams('ct');
 
 </div>
 <div class="clear"></div>
-<?php echo LinkPager::widget(['pagination'=>$pages]);?>
+<div class="page">
+    <?php echo LinkPager::widget(['pagination'=>$pages]);?>
+</div>
+<div class="clear"></div>

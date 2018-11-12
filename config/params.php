@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'imgHost' => 'http://jx.ziranren.cc',
+    'imgHost' => 'http://js.gzxjh.net',
     'adminEmail' => 'admin@example.com',
     'uploadAboutPath' => '/upload/about/',
     'uploadContactPath' => '/upload/contact/',

@@ -15,7 +15,7 @@ $this->title = $config['WEB_SITE_TITLE'];
             <?php foreach($service as $k=>$v):
                 $b = $k%4;
                 ?>
-                <li class="<?=$ct[$b]?>">
+                <li class="<?=$ct[$b]?> col-xs-12 col-sm-3">
                     <p class="pic">
                         <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
                             <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
@@ -45,7 +45,7 @@ $this->title = $config['WEB_SITE_TITLE'];
             <?php foreach($product as $k=>$v):
                 $b = $k%4;
                 ?>
-                <li class="<?=$ct[$b]?>">
+                <li class="<?=$ct[$b]?> col-xs-12 col-sm-3">
                     <p class="pic">
                         <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
                             <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
@@ -67,8 +67,8 @@ $this->title = $config['WEB_SITE_TITLE'];
     <div class="about">
         <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>
         <div class="container">
-            <div class="des"><?=$about['desc']?></div>
-            <div class="pic"><img src="<?=empty($about['imgUrl'])?"/img/pc.png":$about['desc']?>"></div>
+            <div class="des col-xs-12 col-sm-6"><?=$about['desc']?></div>
+            <div class="pic col-xs-12 col-sm-6"><img src="<?=empty($about['imgUrl'])?"/img/pc.png":$about['desc']?>"></div>
         </div>
     </div>
 
@@ -78,13 +78,13 @@ $this->title = $config['WEB_SITE_TITLE'];
         <div class="news">
             <ul class="f-cb news-list">
                 <?php foreach($news as $v): ?>
-                    <li>
+                    <li class=" col-xs-12 col-sm-6">
                         <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">
-                            <p class="pic">
+                            <p class="pic col-xs-12 col-sm-4">
                                 <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
                                 <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="picture">
                             </p>
-                            <span class="con">
+                            <span class="con col-xs-12 col-sm-8">
     							<h3><?=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?></h3>
     							<h2><?=$v['name']?></h2>
     							<div class="font">

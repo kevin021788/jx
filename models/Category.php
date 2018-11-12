@@ -120,7 +120,8 @@ class Category extends \yii\db\ActiveRecord
      */
     public static function getIdPath($parentId, $id)
     {
-        if (empty($rs = self::find()->where(['id' => $parentId])->asArray()->one())) {
+        $rs = self::find()->where(['id' => $parentId])->asArray()->one();
+        if (empty($rs)) {
             return '/0/' . $id . '/';
         } else {
             return $rs['idPath'] . $id . '/';
