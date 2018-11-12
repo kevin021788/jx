@@ -30,32 +30,27 @@ $ct = yiiParams('ct');
         <?php
     }
     ?>
-</div>
-<div class="clear"></div>
-
-<div class="product-type-ajax"><ul class="f-cb">
-
-        <?php foreach($list as $k=>$v):
-            $b = $k%4;
-            ?>
-
-            <li class="<?=$ct[$b]?> col-xs-12 col-sm-3">
-                <p class="pic">
-                    <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
-                        <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
-                    </a>
-                </p>
-                <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
-                <div class="con">
-                    <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
-                        <h2><?=$v['name']?></h2>
-                    </a>
-                </div>
+    <div class="clear"></div>
+    <ul class="f-cb news-list">
+        <?php foreach($list as $v): ?>
+            <li class="nbd col-xs-12 col-sm-6">
+                <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
+                    <p class="pic col-xs-12 col-sm-3">
+                        <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
+                        <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="picture">
+                    </p>
+                    <span class="con col-xs-12 col-sm-9">
+<!--    							<h3>--><?//=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?><!--</h3>-->
+    							<h2><?=$v['name']?></h2>
+    							<div class="font">
+                                    <?=$v['desc']?> [<?=Yii::t('home','More')?>]</div>
+    						</span>
+                </a>
             </li>
-
 
         <?php endforeach; ?>
     </ul>
+
 
 </div>
 <div class="clear"></div>

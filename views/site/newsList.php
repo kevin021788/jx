@@ -31,7 +31,7 @@ $banner = \app\models\Banner::getBanner('news');
     ?>
     <ul class="f-cb news-list">
         <?php foreach($list as $v): ?>
-        <li class=" col-xs-12 col-sm-12">
+        <li class="nbd col-xs-12 col-sm-12">
             <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">
                 <p class="pic col-xs-12 col-sm-3">
                     <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">

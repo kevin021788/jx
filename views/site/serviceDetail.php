@@ -30,15 +30,18 @@ $this->params['breadcrumbs'][] = $model['name'];
         <?php
     }
     ?>
-    <div class="news-info-title">
+    <div class="news-info-title col-xs-12 col-sm-12">
         <h2><?=$model['name']?></h2>
         <div class="box f-cb">
             <a href="javascript:;" class="data fl"><?= empty($model['created_at'])?'':date('Y-m-d', $model['created_at'])?></a>
         </div>
     </div>
-    <div class="news-info-con">
+    <?php if($model['imgUrl']) {?>
+        <div class="img col-xs-12 col-sm-12">
+            <img src="<?=$model['imgUrl']?>">
+        </div>
+    <?php } ?>
+    <div class="news-info-con col-xs-12 col-sm-12">
         <?=$model['content']?>
-
     </div>
-
 </div>
