@@ -44,6 +44,7 @@ class SiteController extends Controller
     //首页
     public function actionIndex()
     {
+        $this->layout = 'index';
         $config = Yii::$app->cache->get('config_'.\app\components\message\Language::getLanguageNum());
         $banner = \app\models\Banner::getBanner('home');
 

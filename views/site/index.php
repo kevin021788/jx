@@ -9,7 +9,7 @@ $this->title = $config['WEB_SITE_TITLE'];
     <div class="product-type-ajax">
         <h1 class="title"><span><?=Yii::t('home','Service Item')?></span></h1>
 
-        <div class="col-xs-12 col-md-12 text-center">
+        <div class="col-xs-12 col-sm-12 text-center">
             <ul id="myTab" class="nav nav-tabs">
                 <?php
                 foreach ($serviceCate as $k=>$v)

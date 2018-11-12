@@ -166,11 +166,9 @@ h1.title{
 
 h1.title span {
     padding:0 1em;
-    background: #ffffff;/* url(/img/bg.jpg) repeat-y center;*/
+    background: url(/img/bg.jpg) repeat-y center;
 
 }
-.category {}
-.category ul { }
 .category ul li {
     float: left;
     /*padding: 0.5em 1em;*/
@@ -522,7 +520,7 @@ h1.title span {
 }
 
 body {
-    /*background: #ececec url(../img/bg.jpg) repeat-y center;*/
+    background: #ececec url(../img/bg.jpg) repeat-y center;
     overflow-x: hidden;
 }
 .footer { clear:both}
