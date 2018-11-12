@@ -29,4 +29,5 @@ return [
     'Product List' => 'لیست محصولات',
     'Service List' => 'فهرست خدمات',
     'View Detail' => 'نمایش جزئیات',
+    'More' => 'بیشتر',
 ];

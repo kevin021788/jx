@@ -49,7 +49,7 @@ class SiteController extends Controller
 
         $product = Product::getIndexList(4);
 
-        $service = Service::getIndexList(4);
+        $serviceCate = Category::getCategoryList('service');
 
         $about = About::findOne(Language::getLanguageNum());
 
@@ -59,7 +59,7 @@ class SiteController extends Controller
             'config' => $config,
             'banner' => $banner,
             'product' => $product,
-            'service' => $service,
+            'serviceCate' => $serviceCate,
             'about' => $about,
             'news' => $news,
         ]);

@@ -29,5 +29,6 @@ return [
     'Product List' => 'Product List',
     'Service List' => 'Service List',
     'View Detail' => 'View Detail',
+    'More' => 'More',
 
 ];

@@ -13,12 +13,20 @@
         <div class="banner col-xs-12 col-sm-12">
             <ul>
                 <?php foreach($banner as $v): ?>
-                    <li><a href="javascript:void(0);"><img src="<?=$v['imgUrl']?>" alt=""></a></li>
+                    <li><a href="<?php
+                        if($v['url'])
+                            echo $v['url'];
+                        else
+                            echo 'javascript:void(0);';
+                        ?>"><img src="<?=$v['imgUrl']?>" alt=""></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="count">
-                <?php foreach($banner as $v): ?>
-                    <i></i>
+                <?php foreach($banner as $k=>$v):
+                    $a = '';
+                    if($k==0) $a = ' class=current';
+                    ?>
+                    <a<?=$a?>></a>
                 <?php endforeach; ?>
             </div>
             <a href="javascript:void(0);" class="prev">
@@ -62,7 +70,7 @@
             }
             function fnTab(){
                 $Li.eq(num).show().siblings().hide();
-                $(".count i").eq(num).addClass("current").siblings().removeClass("current");
+                $(".count a").eq(num).addClass("current").siblings().removeClass("current");
             }
         </script>
 

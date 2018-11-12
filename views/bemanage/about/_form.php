@@ -43,8 +43,11 @@ $category = isset($related['category'])?ArrayHelper::getValue($related['category
 
             'name'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=> Yii::t('common','Please input name ...'), 'maxlength'=>255]],
 
-            'desc'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=> Yii::t('common','Please input describe ...'), 'maxlength'=>255]],
+            'desc'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=> Yii::t('common','Please input describe ...')]],
 
+            'video'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=> Yii::t('common','Please input video Url eg:http://xxx.com/asdf/adf ...'), 'maxlength'=>255]],
+
+            'hkey'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=> Yii::t('common','Please input home key eg:a,b,c ...'), 'maxlength'=>255]],
 
             'content'=>['type'=>Form::INPUT_WIDGET, 'widgetClass'=>'kucha\ueditor\UEditor', 'options'=>[
                 'clientOptions' => [

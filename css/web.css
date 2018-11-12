@@ -15,9 +15,21 @@ ul,ol {list-style: none outside none;}
 
 .page-index .about h1.title span {
     padding:0 1em;
-    background: #7ba5d7;
+    background: url(/img/aboutbg.jpg) repeat-y center;
+    /*background: #7ba5d7;*/
 
 }
+.page-index .about .key {}
+.page-index .about .key li { padding: 10px; float: left; display: block; background: #9ca6b2; margin: 5px 10px; color:#fff; font-weight: bold;}
+.page-index .about .more-btn { margin:0 0 20px 0;}
+.page-index .about .more {
+    padding:10px 20px 10px 20px;
+    margin:10px;
+    color: #FFFFFF !important;
+    background: #343333;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;}
 .page-index .product-type-ajax li,.product-list-ajax .bd li{
     /*width: 18.6em;*/
     float: left;
@@ -25,6 +37,13 @@ ul,ol {list-style: none outside none;}
     margin-bottom: 40px;
     height: 26.875em;
 }
+.page-index .product-type-ajax #myTab {
+    margin:0;
+    padding:0;
+    /*border-bottom: #0a0a0a 1px dashed;*/
+}
+.page-index .product-type-ajax #myTab li {height: auto; margin-bottom: 2px;}
+.page-index .product-type-ajax #myTab a { color: #0d0d0d; font-weight: bold}
 
 .wrap .container .container1 {
     margin-top: -12.5em;
@@ -92,10 +111,11 @@ ul,ol {list-style: none outside none;}
 }
 
 .wrap .about {
-    background: #7ba5d7;
+    background: url(/img/aboutbg.jpg) repeat-y center;
     clear: both;
 }
 .wrap .about .des { /*width: 48%;*/
+    line-height: 200%;
     float: left;}
 .wrap .about .pic { width: 36.625em;
     float: left;
@@ -106,7 +126,7 @@ ul,ol {list-style: none outside none;}
 
 .wrap .container .news {}
 /*index banner*/
-.page-index .banner{/*width:80em;*/height:30em;margin:auto;position:relative;overflow:hidden; background: url(/img/banner.jpg) no-repeat}
+.page-index .banner{/*width:80em;*/height:30em;margin:auto;position:relative;overflow:hidden;/* background: url(/img/banner.jpg) no-repeat*/}
 .page-index .banner ul{margin:0;padding:0;overflow:hidden;height:30em;position:absolute;left:0;}
 .page-index .banner .prev,.page-index .banner .next{position:absolute;top:13.75em;width:2.81em;height:4.5em;background:rgba(76,76,76,0.3);}
 .page-index .banner .prev span,.page-index .banner .next span{display:block;width:1.37em;height:36px;margin:15px auto 0;}
@@ -116,8 +136,10 @@ ul,ol {list-style: none outside none;}
 .banner ul{margin:0;padding:0;overflow:hidden;height:17.5em;position:absolute;left:0;}
 .banner ul li{float:left;list-style:none;}
 .banner ul li img{display:block;}
-.count{position:absolute;left:30%;bottom:1.25em;}
-.count i{display:block;width:1em;height:1em;background:#0d0d0d;border-radius:100%;float:left;margin:5px;}
+.count{position:absolute;width:100%;bottom:1.25em;text-align:center;}
+/*.count a{display:block;width:1em;height:1em;background:#0d0d0d;border-radius:100%;float:left;margin:5px;}*/
+.count a{display:inline-block;width:12px;height:12px;background:#0d0d0d;border-radius:100%;/*float:left;*/margin:0 5px; overflow: hidden}
+
 .count .current{background:#fff;}
 .banner .prev,.banner .next{position:absolute;top:6.25em;width:2.81em;height:4.5em;background:rgba(76,76,76,0.3);}
 .banner .prev:hover,.banner .next:hover{background:rgba(76,76,76,1)}
@@ -127,6 +149,10 @@ ul,ol {list-style: none outside none;}
 .banner .prev span{background:url(../img/left.png) no-repeat center center;background-size:100%;}
 .banner .next span{background:url(../img/right.png) no-repeat center center;background-size:100%;}
 
+
+.navbar-nav > .lang {
+    font-size: 12px;
+}
 /*category*/
 
 h1.title{
@@ -543,7 +569,7 @@ body {
 
 .footer .footer-copyright {
     background: #000000;
-    height: 50px;
+    /*height: 50px;*/
     color: #FFFFFF;
     text-align: center;
     line-height: 50px;
