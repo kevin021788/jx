@@ -7,7 +7,7 @@ $this->title = $config['WEB_SITE_TITLE'];
     <?= $this->render('banner',['banner'=>$banner])?>
 
     <div class="product-type-ajax">
-        <h1 class="title"><span><?=Yii::t('home','Service Item')?></span></h1>
+        <h1 class="title"><span><?=Yii::t('home','Service')?></span></h1>
 
         <div class="col-xs-12 col-sm-12 text-center">
             <ul id="myTab" class="nav nav-tabs">
@@ -66,7 +66,7 @@ $this->title = $config['WEB_SITE_TITLE'];
     <div class="clear"></div>
 
     <div class="product-type-ajax">
-        <h1 class="title"><span><?=Yii::t('home','Product Display')?></span></h1>
+        <h1 class="title"><span><?=Yii::t('home','Shopping')?></span></h1>
         <?php
         $ct = yiiParams('ct');
         ?>

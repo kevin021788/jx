@@ -8,8 +8,8 @@
 return [
     'Home' => 'خانه',
     'About Us' => 'دربارهی ما',
-    'Service Item' => 'خريد كردن',
-    'Product Display' => 'سرویس',
+    'Shopping' => 'خريد كردن',
+    'Service' => 'سرویس',
     'News' => 'اخبار',
     'Contact Us' => 'تماس با ما',
     'Farsi' => 'فارسی',

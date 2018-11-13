@@ -8,7 +8,7 @@ $ct = yiiParams('ct');
 ?>
 <div class="news w1180">
     <?= $this->render('banner',['banner'=>$banner])?>
-    <h1 class="title"><span><?=Yii::t('home','Service Item')?></span></h1>
+    <h1 class="title"><span><?=Yii::t('home','Service')?></span></h1>
     <?php
     if($category)
     {

@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $model['name'];
 <div class="news-info w1180">
     <?= $this->render('banner',['banner'=>$banner])?>
 
-    <h1 class="title"><span><?=Yii::t('home','Product Display')?></span></h1>
+    <h1 class="title"><span><?=Yii::t('home','Shopping')?></span></h1>
     <?php
     if($category)
     {
