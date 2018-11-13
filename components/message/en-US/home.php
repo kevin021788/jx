@@ -8,8 +8,8 @@
 return [
     'Home' => 'Home',
     'About Us' => 'About Us',
-    'Service Item' => 'Service Item',
-    'Product Display' => 'Product Display',
+    'Service Item' => 'Shopping',
+    'Product Display' => 'Service',
     'News' => 'News',
     'Contact Us' => 'Contact Us',
     'Farsi' => 'Farsi',
