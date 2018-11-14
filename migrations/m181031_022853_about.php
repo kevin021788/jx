@@ -18,6 +18,8 @@ class m181031_022853_about extends Migration
         $this->createTable(self::$tableName, [
             'id' => $this->primaryKey()->comment('ID'),
             'name' => $this->string(50)->comment('Name'),
+            'video' => $this->string(250)->comment('Video'),
+            'hkey' => $this->string(250)->comment('hHey'),
             'slug' => $this->string(250)->comment('Slug'),
             'imgUrl' => $this->string(255)->comment('imgUrl'),
             'desc' => $this->string(255)->comment('Description'),
