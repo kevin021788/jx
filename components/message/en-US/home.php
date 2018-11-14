@@ -8,7 +8,7 @@
 return [
     'Home' => 'Home',
     'About Us' => 'About Us',
-    'Shopping' => 'Shopping',
+    'Shipping' => 'Shipping',
     'Service' => 'Service',
     'News' => 'News',
     'Contact Us' => 'Contact Us',
