@@ -1,97 +1,80 @@
 <?php
 $this->title = $config['WEB_SITE_TITLE'];
+$ct = yiiParams('ct');
 ?>
 
 <div class="page-index">
   <!-- Banner -->
     <?= $this->render('banner',['banner'=>$banner])?>
 
-    <div class="product-type-ajax">
-        <h1 class="title"><span><?=Yii::t('home','Shipping')?></span></h1>
 
-        <div class="col-xs-12 col-sm-12 text-center">
-            <ul id="myTab" class="nav nav-tabs">
-                <?php
-                foreach ($serviceCate as $k=>$v)
-                {
-                    $b = '';
-                    if($k==0) $b = ' class="active"';
-                    echo "<li$b><a href=\"#service{$v['id']}\" data-toggle=\"tab\">{$v['name']}</a></li>";
-                }
-                ?>
+    <div class="product-type-ajax">
+
+
+        <div class="col-xs-12 col-sm-12 text-center" style="width: 100%; text-align: center">
+            <ul id="myTab" class="nav nav-tabs sban">
+                <li class="col-xs-12 col-sm-1"></li>
+                <li class="active col-xs-12 col-sm-5"><a href="#service" data-toggle="tab"><img src="/img/ban1.jpg"></a><div class="title"><?=Yii::t('home','Shipping')?></div></li>
+                <li class="col-xs-12 col-sm-5"><a href="#product" data-toggle="tab"><img src="/img/ban2.jpg"></a><div class="title"><?=Yii::t('home','Product')?></div></li>
             </ul>
         </div>
 
         <div id="myTabContent" class="tab-content">
-            <?php
-            $ct = yiiParams('ct');
 
-            foreach ($serviceCate as $k=>$v)
-            {
-                ?>
-                <div class="tab-pane fade in active" id="service<?=$v['id']?>">
-                    <?php
-                    $service = \app\models\Service::getIndexList(4, $v['id']);
-                    ?>
+
+                <div class="tab-pane fade in active" id="service">
+
                     <ul class="f-cb">
-                        <?php foreach($service as $k1=>$v1):
-                            $b = $k1%4;
+                        <?php foreach($service as $k=>$v):
+                            $b = $k%4;
                             ?>
-                            <li class="<?=$ct[$b]?> col-xs-12 col-sm-3">
+                            <li class="<?=$ct[$b]?> col-xs-12 col-sm-4">
                                 <p class="pic">
-                                    <a href="<?php echo yiiUrl('/site/service-detail?id='.$v1['id'])?>">
-                                        <img src="<?= empty($v1['imgUrl'])?'/img/logo.png':$v1['imgUrl'];?>" alt="<?=$v1['name']?>">
+                                    <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
+                                        <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
                                     </a>
                                 </p>
                                 <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
                                 <div class="con">
-                                    <a href="<?php echo yiiUrl('/site/service-detail?id='.$v1['id'])?>">
-                                        <h2><?=$v1['name']?></h2>
+                                    <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
+                                        <h2><?=$v['name']?></h2>
                                     </a>
                                 </div>
-                                <div class="clear"></div>
                             </li>
-
                         <?php endforeach; ?>
                     </ul>
                 </div>
-                <?php
-            }
-            ?>
+
+
+            <div class="tab-pane fade in" id="product">
+
+                <ul class="f-cb">
+                    <?php foreach($product as $k=>$v):
+                        $b = $k%4;
+                        ?>
+                        <li class="<?=$ct[$b]?> col-xs-12 col-sm-4">
+                            <p class="pic">
+                                <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                                    <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
+                                </a>
+                            </p>
+                            <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
+                            <div class="con">
+                                <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
+                                    <h2><?=$v['name']?></h2>
+                                </a>
+                            </div>
+                        </li>
+
+                    <?php endforeach; ?>
+                </ul>
+            </div>
 
         </div>
 
 
     </div>
     <div class="clear"></div>
-
-    <div class="product-type-ajax">
-        <h1 class="title"><span><?=Yii::t('home','Service')?></span></h1>
-        <?php
-        $ct = yiiParams('ct');
-        ?>
-        <ul class="f-cb">
-            <?php foreach($product as $k=>$v):
-                $b = $k%4;
-                ?>
-                <li class="<?=$ct[$b]?> col-xs-12 col-sm-3">
-                    <p class="pic">
-                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
-                            <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
-                        </a>
-                    </p>
-                    <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
-                    <div class="con">
-                        <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
-                            <h2><?=$v['name']?></h2>
-                        </a>
-                    </div>
-                </li>
-
-            <?php endforeach; ?>
-        </ul>
-
-    </div>
 
     <div class="about">
         <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>

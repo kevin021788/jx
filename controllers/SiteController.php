@@ -48,9 +48,8 @@ class SiteController extends Controller
         $config = Yii::$app->cache->get('config_'.\app\components\message\Language::getLanguageNum());
         $banner = \app\models\Banner::getBanner('home');
 
-        $product = Product::getIndexList(4);
-
-        $serviceCate = Category::getCategoryList('service');
+        $product = Product::getIndexList(6);
+        $service = Service::getIndexList(6);
 
         $about = About::findOne(Language::getLanguageNum());
 
@@ -60,7 +59,7 @@ class SiteController extends Controller
             'config' => $config,
             'banner' => $banner,
             'product' => $product,
-            'serviceCate' => $serviceCate,
+            'service' => $service,
             'about' => $about,
             'news' => $news,
         ]);
