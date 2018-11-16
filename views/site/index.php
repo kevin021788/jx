@@ -13,11 +13,11 @@ $ct = yiiParams('ct');
 
         <div class="col-xs-12 col-sm-12 text-center" style="width: 100%; text-align: center">
             <ul id="myTab" class="nav nav-tabs sban">
-                <li class="col-xs-12 col-sm-1"></li>
-                <li class="active col-xs-12 col-sm-5"><a href="#service" data-toggle="tab"><img src="/img/ban1.jpg"></a><div class="title col-xs-10 col-sm-10 text-center"><?=Yii::t('home','Shipping')?></div></li>
+                <li class="col-xs-12 col-sm-2"></li>
+                <li class="active col-xs-12 col-sm-4"><a href="#service" data-toggle="tab"><img src="/img/ban1.jpg"></a><div class="title col-xs-10 col-sm-10 text-center"><?=Yii::t('home','Shipping')?></div></li>
 <!--                <li class="col-xs-12 col-sm-1"></li>-->
 
-                <li class="col-xs-12 col-sm-5"><a href="#product" data-toggle="tab"><img src="/img/ban2.jpg"></a><div class="title col-xs-10 col-sm-10 text-center"><?=Yii::t('home','Service')?></div></li>
+                <li class="col-xs-12 col-sm-4"><a href="#product" data-toggle="tab"><img src="/img/ban2.jpg"></a><div class="title col-xs-10 col-sm-10 text-center"><?=Yii::t('home','Service')?></div></li>
             </ul>
         </div>
         <div class="clear"></div>

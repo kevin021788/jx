@@ -342,7 +342,7 @@ h1.title span {
     margin: 0 1px 0 0;
     transition:background 0.3s,color 0.3s;
 }
-
+.container img { max-width: 100%;}
 /*news*/
 
 
