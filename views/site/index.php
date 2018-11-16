@@ -15,7 +15,7 @@ $ct = yiiParams('ct');
             <ul id="myTab" class="nav nav-tabs sban">
                 <li class="col-xs-12 col-sm-1"></li>
                 <li class="active col-xs-12 col-sm-5"><a href="#service" data-toggle="tab"><img src="/img/ban1.jpg"></a><div class="title"><?=Yii::t('home','Shipping')?></div></li>
-                <li class="col-xs-12 col-sm-5"><a href="#product" data-toggle="tab"><img src="/img/ban2.jpg"></a><div class="title"><?=Yii::t('home','Product')?></div></li>
+                <li class="col-xs-12 col-sm-5"><a href="#product" data-toggle="tab"><img src="/img/ban2.jpg"></a><div class="title"><?=Yii::t('home','Service')?></div></li>
             </ul>
         </div>
 
@@ -34,8 +34,8 @@ $ct = yiiParams('ct');
                                         <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
                                     </a>
                                 </p>
-                                <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
-                                <div class="con">
+<!--                                <a href="javascript:;" class="shopping" data-link="" data-img=""><span>--><?//=Yii::t('home','View Detail')?><!--</span></a>-->
+                                <div class="text-center">
                                     <a href="<?php echo yiiUrl('/site/service-detail?id='.$v['id'])?>">
                                         <h2><?=$v['name']?></h2>
                                     </a>
@@ -58,8 +58,8 @@ $ct = yiiParams('ct');
                                     <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
                                 </a>
                             </p>
-                            <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
-                            <div class="con">
+<!--                            <a href="javascript:;" class="shopping" data-link="" data-img=""><span>--><?//=Yii::t('home','View Detail')?><!--</span></a>-->
+                            <div class="text-center">
                                 <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
                                     <h2><?=$v['name']?></h2>
                                 </a>
@@ -77,7 +77,7 @@ $ct = yiiParams('ct');
     <div class="clear"></div>
 
     <div class="about">
-        <h1 class="title"><span><?=Yii::t('home','About')?></span></h1>
+        <h1 class="title"><span><?=Yii::t('home','About Us')?></span></h1>
         <div class="container">
             <?php
             if($about['hkey'])

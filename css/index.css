@@ -4,6 +4,11 @@
     color: #0d0d0d;
     font-family: "Arial";
 }
+a {
+    color: #0d0d0d !important;
+
+    text-decoration: none !important;;
+}
 ul,ol {list-style: none outside none;}
 .w1180{
     /*width: 1180px;*/
@@ -375,7 +380,7 @@ h1.title span {
     /*width: 17.25em;*/
     float: left;
     /*margin-left: 30px;*/
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
     height: 26.875em;
 }
 .product-list-ajax .bd li{
@@ -448,7 +453,7 @@ h1.title span {
     display: block;
 }
 .product-type-list li:hover a,.product-type-list li.cur a{
-    color: #000;
+    color: #000 !important;
 }
 /*product*/
 .navbar-inverse .navbar-nav > li > a {
