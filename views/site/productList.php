@@ -44,8 +44,8 @@ $ct = yiiParams('ct');
                     <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>">
                 </a>
             </p>
-            <a href="javascript:;" class="shopping" data-link="" data-img=""><span><?=Yii::t('home','View Detail')?></span></a>
-            <div class="con">
+<!--            <a href="javascript:;" class="shopping" data-link="" data-img=""><span>--><?//=Yii::t('home','View Detail')?><!--</span></a>-->
+            <div class="text-center">
                 <a href="<?php echo yiiUrl('/site/product-detail?id='.$v['id'])?>">
                     <h2><?=$v['name']?></h2>
                 </a>

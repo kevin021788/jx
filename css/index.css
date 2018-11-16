@@ -46,11 +46,12 @@ ul,ol {list-style: none outside none;}
 .page-index .product-type-ajax #myTab {
     margin:0;
     padding:0;
+    margin-top:-80px;
     /*border-bottom: #0a0a0a 1px dashed;*/
 }
 .page-index .product-type-ajax #myTab li {height: auto; margin-bottom: 2px;}
 .page-index .product-type-ajax #myTab a { color: #0d0d0d; font-weight: bold}
-
+.page-index .product-type-ajax .tab-content { margin-top: 46px;}
 .wrap .container .container1 {
     margin-top: -12.5em;
     height: 20em;
@@ -65,7 +66,7 @@ ul,ol {list-style: none outside none;}
     }*/
 
 .wrap .container .sban {
-    margin: 0 auto;
+    margin: 0 auto 45px auto;
     padding: 0px;
     /*position: relative;*/
     width: 100%;
@@ -77,16 +78,17 @@ ul,ol {list-style: none outside none;}
     display: inline;
     text-align: center;
     font-weight: bold;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .wrap .container .sban li img {
-    /*padding: 0 10em 0 0;*/
+    width: 100%;
+    height:100%;
 }
 
 .wrap .container .sban .title {
     background: #FFFFFF;
-    width: 326px;
+    /*width: 326px;*/
     height: 4.375em;
     color: #333333;
     margin: 0 auto;
@@ -95,6 +97,17 @@ ul,ol {list-style: none outside none;}
     z-index: 999;
     line-height: 4.375em;
     position: relative;
+    left:10%;
+
+}
+.nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+
+    color: #555;
+    cursor: default;
+    background-color: #b0b0b04d;
+    border: 1px solid #ddd;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-color: transparent;
 
 }
 
@@ -122,11 +135,11 @@ ul,ol {list-style: none outside none;}
 .wrap .about .des { /*width: 48%;*/
     line-height: 200%;
     float: left;}
-.wrap .about .pic { width: 36.625em;
+.wrap .about .pic { /*width: 36.625em;*/
     float: left;
     /*height:21.5em;*/
 }
-.wrap .about .pic img { width:36em; height: 100%; padding-bottom: 2em;}
+.wrap .about .pic img { width:100%; height: 100%; padding-bottom: 2em;}
 
 
 .wrap .container .news {}
@@ -400,8 +413,8 @@ h1.title span {
     border-radius: 10px;
 }
 .product-type-ajax .pic img,.product-list-ajax .bd .pic img{
-    max-height: 320px;
-    max-width: 320px;
+    max-height: 257px;
+    max-width: 257px;
 }
 .product-type-ajax li .shopping,.product-list-ajax .bd li .shopping{
     text-align: center;
