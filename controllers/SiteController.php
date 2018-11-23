@@ -263,7 +263,11 @@ class SiteController extends Controller
     }
 
     //------------------------------------------------------------------------//
-
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return $this->redirect('/admin/user/login');
+    }
     //错误显示页
     public function actions()
     {
