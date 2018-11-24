@@ -16,7 +16,8 @@ ul,ol {list-style: none outside none;}
     position: relative;
 }
 /*index*/
-
+.fl { float:left !important;}
+.fr { float:right !important;}
 
 .page-index .about h1.title span {
     padding:0 1em;
@@ -32,7 +33,7 @@ ul,ol {list-style: none outside none;}
     margin:10px;
     font-weight: bold;
     color: #FFFFFF !important;
-    background: #343333;
+    background: #4c4f53;
     -moz-border-radius: 2em;
     -webkit-border-radius: 2em;
     border-radius: 2em;}
@@ -132,6 +133,7 @@ ul,ol {list-style: none outside none;}
 .wrap .about {
     background: url(/img/aboutbg.jpg) repeat-y center;
     clear: both;
+    overflow: hidden;
 }
 .wrap .about .des { /*width: 48%;*/
     line-height: 200%;
@@ -290,7 +292,7 @@ h1.title span {
     float: left;
     /*width: 328px;*/
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .news-list li .bg{
     width: 100%;
@@ -396,7 +398,7 @@ h1.title span {
     float: left;
     /*margin-left: 30px;*/
     /*margin-bottom: 40px;*/
-    height: 26.875em;
+    /*height: 26.875em;*/
 }
 .product-list-ajax .bd li{
     margin-left: 0;
@@ -408,15 +410,16 @@ h1.title span {
 }
 .product-type-ajax .pic,.product-list-ajax .bd .pic{
     width: 100%;
-    height: 306px;
+    /*height: 306px;*/
     text-align: center;
     margin-bottom: 11px;
-    line-height: 306px;
+    line-height: 257px;
     border-radius: 10px;
 }
 .product-type-ajax .pic img,.product-list-ajax .bd .pic img{
     max-height: 257px;
     max-width: 257px;
+    width: 94%;
 }
 .product-type-ajax li .shopping,.product-list-ajax .bd li .shopping{
     text-align: center;
@@ -472,7 +475,7 @@ h1.title span {
 }
 /*product*/
 .navbar-inverse .navbar-nav > li > a {
-    color: #000 !important;}
+    color: #777 !important;}
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
     color: #080808 !important;
 }
@@ -485,8 +488,8 @@ h1.title span {
     color: #080808 !important;}
 /*圆角NAV*/
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus ,.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
-    color: #FFFFFF !important;
-    background: #343333;
+    color: #000 !important;
+    background: none !important;
     -moz-border-radius: 2em;
     -webkit-border-radius: 2em;
     border-radius: 2em;
@@ -524,6 +527,7 @@ h1.title span {
     font-size: 1.25em;
     list-style: none;
     float: left;
+    text-transform: uppercase;
 }
 
 /**LOGO*/
@@ -534,7 +538,7 @@ h1.title span {
     text-align: center;
 }
 .navbar-brand img {
-    width: 7.5em;
+    /*width: 7.5em;*/
     height: 3em;
     margin:0 auto;
 }

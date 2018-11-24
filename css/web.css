@@ -456,7 +456,7 @@ h1.title span {
 }
 /*product*/
 .navbar-inverse .navbar-nav > li > a {
-    color: #000 !important;}
+    color: #777 !important;}
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
     color: #080808 !important;
 }
@@ -469,8 +469,8 @@ h1.title span {
     color: #080808 !important;}
 /*圆角NAV*/
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus ,.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
-    color: #FFFFFF !important;
-    background: #343333;
+    color: #000 !important;
+    background: none !important;
     -moz-border-radius: 2em;
     -webkit-border-radius: 2em;
     border-radius: 2em;
@@ -508,6 +508,7 @@ h1.title span {
     font-size: 1.25em;
     list-style: none;
     float: left;
+    text-transform: uppercase;
 }
 
 /**LOGO*/
@@ -518,7 +519,7 @@ h1.title span {
     text-align: center;
 }
 .navbar-brand img {
-    width: 7.5em;
+    /*width: 7.5em;*/
     height: 3em;
     margin:0 auto;
 }
