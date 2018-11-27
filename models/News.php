@@ -138,12 +138,20 @@ class News extends \yii\db\ActiveRecord
     {
 
         try{
+            safe();
             $db = \Yii::$app->db;
+            $get = Yii::$app->request->get();
+            $post = Yii::$app->request->post();
+            $catId = getVal($get, 'cat_id', '');
+            $key = getVal($post,'key', '');
             $where = '';
-            $catId = Yii::$app->request->get('cat_id', '');
             if(is_numeric($catId))
             {
-                $where = ' AND cat_id='.$catId;
+                $where .= ' AND cat_id='.$catId;
+            }
+            if(!empty($key))
+            {
+                $where .= ' AND name like \'%'.$key.'%\'';
             }
             $count = $db->createCommand('SELECT COUNT(*) as count FROM '.self::tableName().' WHERE language='.Language::getLanguageNum().$where)->queryOne();
             if($count)

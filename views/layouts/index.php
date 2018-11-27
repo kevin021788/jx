@@ -87,12 +87,15 @@ if(empty($config))
     </div>
     <div class="clear"></div>
     <div class="footer-logo ol-xs-12 col-md-12">
-        <!--        <img src="/img/footer-logo.png">-->
+        <div class="col-xs-12 col-md-4"></div>
+        <div class="col-xs-12 col-md-4"><img src="/img/footer-logo.png"></div>
+        <div class="col-xs-12 col-md-4"></div>
     </div>
     <div class="clear"></div>
     <div class="footer-copyright"><?= Html::encode($config['WEB_SITE_COPYRIGHT'])?></div>
 </footer>
 <?php $this->endBody() ?>
+<script language="JavaScript" src="http://code.54kefu.net/kefu/js/b16/1063416.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

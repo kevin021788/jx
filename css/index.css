@@ -187,7 +187,7 @@ h1.title{
 
 h1.title span {
     padding:0 1em;
-    background: url(/img/bg.jpg) repeat-y center;
+    background: /*url(/img/bg.jpg) repeat-y center*/#ffffff;
 
 }
 .category ul li {
@@ -510,14 +510,14 @@ h1.title span {
     /*margin: 0px auto;*/
     background: #cacbcb !important;
     border: 1px #cacbcb solid  !important;
-    /*opacity: 0.8;*/
+    opacity: 0.5;
     /*text-align: center;*/
     /*line-height: 1.9em;*/
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     background: #cacbcb !important;
 }
-.page-top {margin-top: 5.5em;}
+/*.page-top {margin-top: 5.5em;}*/
 
 /**导航条 */
 .navbar-nav {
@@ -544,7 +544,7 @@ h1.title span {
 }
 
 body {
-    background: #ececec url(../img/bg.jpg) repeat-y center;
+    /*background: #ececec url(../img/bg.jpg) repeat-y center;*/
     overflow-x: hidden;
 }
 .footer { clear:both}
@@ -584,12 +584,12 @@ body {
 }
 .footer .footer-logo {
     text-align: center;
-    height: 12em !important;
+    /*height: 12em !important;*/
     display: block;
-    background: url(../img/footer-logo.png) center no-repeat;
+    /*background: url(../img/footer-logo.png) center no-repeat;*/
     margin: 10px 0;
 }
-
+.footer .footer-logo img { width: 100%}
 
 .footer .footer-copyright {
     background: #000000;

@@ -56,6 +56,6 @@ $banner = \app\models\Banner::getBanner('news');
 </div>
 <div class="clear"></div>
 <div class="page">
-    <?php echo LinkPager::widget(['pagination'=>$pages]);?>
+    <?php if(isset($pages)) echo LinkPager::widget(['pagination'=>$pages]);?>
 </div>
 <div class="clear"></div>

@@ -70,6 +70,57 @@ if(!function_exists('getSavePath')) {
 
     }
 }
+if(!function_exists('mageAddslashes'))
+{
+    /**
+     * 数据库对数组做数据安全编码，防数据库注入
+     * $request = mageAddslashes($this->request); // 防数据注入查询
+     * @param $array
+     * @param bool $topLevel
+     * @return array
+     */
+    function mageAddslashes($array, $topLevel=true) {
+        $newArray = array();
+        foreach($array as $key => $value) {
+            if (!$topLevel) {
+                $newKey = addslashes(stripslashes($key));
+                if ($newKey!==$key) {
+                    unset($array[$key]);
+                }
+                $key = $newKey;
+            }
+            $newArray[$key] = is_array($value) ? mageAddslashes($value, false) : addslashes(stripslashes($value));
+        }
+        return $newArray;
+    }
+}
+
+if(!function_exists('safe'))
+{
+    /**
+     * type = 1-get ，2-post，3-request， 4-all
+     * @param $type
+     */
+    function safe($type=0)
+    {
+        switch ($type) {
+            case 1:
+                $_GET = mageAddslashes($_GET);
+                break;
+            case 2:
+                $_POST = mageAddslashes($_POST);
+                break;
+            case 3:
+                $_REQUEST = mageAddslashes($_REQUEST);
+                break;
+            default:
+                $_GET = mageAddslashes($_GET);
+                $_POST = mageAddslashes($_POST);
+                $_REQUEST = mageAddslashes($_REQUEST);
+                break;
+        }
+    }
+}
 if(!function_exists('getWebConfig'))
 {
     function getWebConfig()
