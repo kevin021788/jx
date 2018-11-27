@@ -459,13 +459,13 @@ h1.title span {
     background: #f0f0f2;
 }
 .product-type-ajax li.two .pic,.product-type-ajax li.two .shopping,.product-list-ajax .bd li.two .pic,.product-list-ajax .bd li.two .shopping{
-    background: #fdfdfd;
+    background: #f0f0f2;
 }
 .product-type-ajax li.the .pic,.product-type-ajax li.the .shopping,.product-list-ajax .bd li.the .pic,.product-list-ajax .bd li.the .shopping{
     background: #f0f0f2;
 }
 .product-type-ajax li.four .pic,.product-type-ajax li.four .shopping,.product-list-ajax .bd li.four .pic,.product-list-ajax .bd li.four .shopping{
-    background: #fdfdfd;
+    background: #f0f0f2;
 }
 .product-type-ajax li:hover .shopping,.product-list-ajax .bd li:hover .shopping{
     display: block;

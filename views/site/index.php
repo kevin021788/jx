@@ -109,11 +109,11 @@ $ct = yiiParams('ct');
                 <?php foreach($news as $v): ?>
                     <li class=" col-xs-12 col-sm-6">
                         <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">
-                            <p class="pic col-xs-6 col-sm-4">
+                            <p class="pic col-xs-12 col-sm-4">
                                 <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
                                 <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="picture">
                             </p>
-                            <span class="con col-xs-6 col-sm-8">
+                            <span class="con col-xs-12 col-sm-8">
 <!--    							<h3>--><?//=empty($v['created_at'])?'':date('m-d',$v['created_at']) ?><!--</h3>-->
     							<h2><?=$v['name']?></h2>
     							<div class="font">

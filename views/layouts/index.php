@@ -82,7 +82,7 @@ if(empty($config))
         <ul class="tool container">
             <li class="col-xs-12 col-md-3"><i class="tel"></i><?= Html::encode($config['WEB_SITE_TEL'])?></li>
             <li class="col-xs-12 col-md-3"><i class="mail"></i><?= Html::encode($config['WEB_SITE_MAIL'])?></li>
-            <li class="col-xs-12 col-md-6"><i class="address"></i><?= Html::encode($config['WEB_SITE_ADDRESS'])?></li>
+            <li class="col-xs-12 col-md-6" style="overflow: hidden; height: 70px;"><i class="address"></i><?= Html::encode($config['WEB_SITE_ADDRESS'])?></li>
         </ul>
     </div>
     <div class="clear"></div>
