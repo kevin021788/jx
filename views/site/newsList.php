@@ -5,8 +5,9 @@ use yii\widgets\LinkPager;
 $this->title = Yii::t('home','News List').' | '.$this->params['config']['WEB_SITE_TITLE'];
 $banner = \app\models\Banner::getBanner('news');
 ?>
+<?= $this->render('banner',['banner'=>$banner])?>
+
 <div class="news w1180">
-    <?= $this->render('banner',['banner'=>$banner])?>
     <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
     <?php
     if($category)

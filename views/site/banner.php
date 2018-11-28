@@ -1,3 +1,4 @@
+</div>
 <?php
 /**
  * Created by kevin0217@126.com
@@ -5,20 +6,19 @@
  * Date: 2018-11-07
  * Time: 15:24
  */
-
     if(!empty($banner))
     {
         ?>
         <!-- Banner -->
         <div class="banner col-xs-12 col-sm-12">
-            <ul>
+            <ul class="col-xs-12 col-sm-12">
                 <?php foreach($banner as $v): ?>
-                    <li><a href="<?php
+                    <li class="col-xs-12 col-sm-12"><a href="<?php
                         if($v['url'])
                             echo $v['url'];
                         else
                             echo 'javascript:void(0);';
-                        ?>"><img src="<?=$v['imgUrl']?>" alt=""></a></li>
+                        ?>"><img src="<?=$v['imgUrl']?>"></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="count">
@@ -77,3 +77,4 @@
         <?php
     }
 ?>
+<div class="container">

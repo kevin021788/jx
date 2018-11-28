@@ -2,10 +2,9 @@
 $this->title = $config['WEB_SITE_TITLE'];
 $ct = yiiParams('ct');
 ?>
-
+<!-- Banner -->
+<?= $this->render('banner',['banner'=>$banner])?>
 <div class="page-index">
-  <!-- Banner -->
-    <?= $this->render('banner',['banner'=>$banner])?>
 
 
     <div class="product-type-ajax">
@@ -14,10 +13,23 @@ $ct = yiiParams('ct');
         <div class="col-xs-12 col-sm-12 text-center" style="width: 100%; text-align: center">
             <ul id="myTab" class="nav nav-tabs sban">
                 <li class="col-xs-12 col-sm-2"></li>
-                <li class="active col-xs-6 col-sm-4"><a href="#service" data-toggle="tab"><img src="/img/ban1.jpg"></a><div class="title col-xs-10 col-sm-10 text-center"><a href="#service" data-toggle="tab"><?=Yii::t('home','Shipping')?></a></div></li>
-<!--                <li class="col-xs-12 col-sm-1"></li>-->
+                <li class="active col-xs-6 col-sm-4">
+                    <a href="#service" data-toggle="tab">
+                        <img src="/img/ban1.jpg">
+                    </a>
+                    <div class="title col-xs-10 col-sm-10 text-center">
+                        <a href="#service" data-toggle="tab"><?=Yii::t('home','Shipping')?></a>
+                    </div>
+                </li>
 
-                <li class="col-xs-6 col-sm-4"><a href="#product" data-toggle="tab"><img src="/img/ban2.jpg"></a><div class="title col-xs-10 col-sm-10 text-center"><a href="#product" data-toggle="tab"><?=Yii::t('home','Service')?></a></div></li>
+                <li class="col-xs-6 col-sm-4">
+                    <a href="#product" data-toggle="tab">
+                        <img src="/img/ban2.jpg">
+                    </a>
+                    <div class="title col-xs-10 col-sm-10 text-center">
+                        <a href="#product" data-toggle="tab"><?=Yii::t('home','Service')?></a>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="clear"></div>
@@ -96,7 +108,7 @@ $ct = yiiParams('ct');
 
             <div class="pic col-xs-12 col-sm-6 fr"><a href="<?=$about['video']?>" target="_blank"><img src="/img/pc.png"></a></div>
             <div class="des col-xs-12 col-sm-6 fl"><?=$about['desc']?></div>
-            <div class="more-btn col-xs-12 col-sm-12"><a href="<?=yiiUrl('site/about')?>" class="more"><?=Yii::t('home','More')?></a> </div>
+            <div class="more-btn col-xs-12 col-sm-12"><a href="<?=yiiUrl('site/about')?>" class="more"><?=Yii::t('home','More')?><img class="jt" src="/img/jt.png"> </a> </div>
             <div class="clear"></div>
         </div>
     </div>
@@ -106,8 +118,9 @@ $ct = yiiParams('ct');
         <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
         <div class="news">
             <ul class="f-cb news-list">
-                <?php foreach($news as $v): ?>
-                    <li class=" col-xs-12 col-sm-6">
+                <?php foreach($news as $k=>$v):
+                    ?>
+                    <li class="col-xs-12 col-sm-6">
                         <a href="<?php echo yiiUrl('/site/news-detail?id='.$v['id'])?>">
                             <p class="pic col-xs-12 col-sm-4">
                                 <img src="<?= empty($v['imgUrl'])?'/img/logo.png':$v['imgUrl'];?>" alt="<?=$v['name']?>" class="bg">
@@ -124,7 +137,9 @@ $ct = yiiParams('ct');
 
                 <?php endforeach; ?>
             </ul>
-            <div class="col-xs-3 col-md-5"></div>
+
+            <div style="height: 50px;"></div>
+            <div class="col-xs-2 col-md-5"></div>
             <div class="col-xs-2 col-md-2"><a class="more" href="<?=yiiUrl('site/news')?>"><?=Yii::t('home','More')?></a></div>
             <div class="col-xs-5 col-md-5"></div>
             <div class="clear"></div>

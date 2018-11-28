@@ -6,8 +6,9 @@ $this->title = Yii::t('home','Service List').' | '.$this->params['config']['WEB_
 $this->params['breadcrumbs'][] = $this->title;
 $ct = yiiParams('ct');
 ?>
+<?= $this->render('banner',['banner'=>$banner])?>
+
 <div class="news w1180">
-    <?= $this->render('banner',['banner'=>$banner])?>
     <h1 class="title"><span><?=Yii::t('home','Shipping')?></span></h1>
     <?php
     if($category)

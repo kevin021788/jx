@@ -6,9 +6,9 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['news']];
 $this->params['breadcrumbs'][] = $model['name'];
 $this->context->action->id = explode('-', $this->context->action->id)[0];
 ?>
+<?= $this->render('banner',['banner'=>$banner])?>
 
 <div class="news-info w1180">
-    <?= $this->render('banner',['banner'=>$banner])?>
 
     <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
     <?php
