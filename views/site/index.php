@@ -96,8 +96,8 @@ $ct = yiiParams('ct');
         </div>
     </div>
     <div class="container">
-        <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
         <div class="news">
+            <h1 class="title"><span><?=Yii::t('home','News')?></span></h1>
             <ul class="f-cb news-list">
                 <?php foreach($news as $k=>$v):
                     ?>

@@ -158,17 +158,20 @@ ul,ol {list-style: none outside none;}
 h1.title{
     text-align: center;
     width: 10em;
-    margin: 1em auto 0 auto;
+    margin: 0 auto;
+    /*margin: 1em auto 0 auto;*/
     background: url(/img/line.jpg) repeat-x center;
     height:3em;
     line-height: 3em;
+    max-width: 100% !important;
+    overflow: hidden !important;
 }
 
 h1.title span {
     padding:0 1em;
     background: #ffffff;/* url(/img/bg.jpg) repeat-y center;*/
-
 }
+.container {width:100%;overflow-x: hidden !important;}
 .category {}
 .category ul { }
 .category ul li {
@@ -495,11 +498,12 @@ h1.title span {
 .navbar-inverse {
     /*padding: 0.3em 0;*/
     /*height: 7.5em;*/
-    /*width: 100%;*/
+    width: 100%;
     /*margin: 0px auto;*/
     background: #cacbcb !important;
     border: 1px #cacbcb solid  !important;
     opacity: 0.5;
+    overflow: hidden;
     /*text-align: center;*/
     /*line-height: 1.9em;*/
 }
@@ -521,10 +525,12 @@ h1.title span {
 
 /**LOGO*/
 .navbar-brand {
-    width: 12.5em;
+    /*width: 12.5em;*/
     height: 4.3em !important;
     display: block;
     text-align: center;
+    max-width: 100%;
+    overflow: hidden;
 }
 .navbar-brand img {
     /*width: 7.5em;*/
@@ -541,7 +547,7 @@ body {
 .footer .footer-nav {
     background: url(../img/footerbg.jpg) repeat-x;
     width: 100%;
-    height: 70px;
+    /*height: 70px;*/
     display: block;
 }
 .footer .footer-nav .tool {/*width: 67em;*/ margin: 0 auto; padding-left: 0; padding-right: 0}
@@ -575,6 +581,7 @@ body {
     text-align: center;
     /*height: 12em !important;*/
     display: block;
+    overflow: hidden;
     /*background: url(../img/footer-logo.png) center no-repeat;*/
     margin: 10px 0;
 }
