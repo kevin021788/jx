@@ -261,3 +261,22 @@ REPLACE INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_re
 	(1, 'admin', 'b7zsDPtKfK6YwgDQhuQhkVUNwHXUvHEg', '$2y$13$QWNFR3q4TEqd2CwMRjSBB.ZXt1R0ni.juZTlwJREsaKRf0LjtTexS', 'qaqMQXz5ef7f6APucSYZ9V151HNW8O7t_1527576370', 'kevin0217@126.com', 10, 1541409293, 0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
+
+-- 导出  表 jx.feedback 结构
+CREATE TABLE `feedback` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+	`name` VARCHAR(50) NULL DEFAULT NULL COMMENT 'Name' COLLATE 'utf8_unicode_ci',
+	`slug` VARCHAR(250) NULL DEFAULT NULL COMMENT 'Slug' COLLATE 'utf8_unicode_ci',
+	`imgUrl` VARCHAR(255) NULL DEFAULT NULL COMMENT 'imgUrl' COLLATE 'utf8_unicode_ci',
+	`tel` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Tel' COLLATE 'utf8_unicode_ci',
+	`phone` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Phone' COLLATE 'utf8_unicode_ci',
+	`email` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Email' COLLATE 'utf8_unicode_ci',
+	`content` TEXT NULL COMMENT 'Content' COLLATE 'utf8_unicode_ci',
+	`sort` INT(11) NULL DEFAULT '0' COMMENT 'Sort',
+	`status` INT(2) NULL DEFAULT '1' COMMENT 'Status：0-UnActive，1-Active',
+	`created_at` INT(10) NULL DEFAULT NULL COMMENT 'Create Time',
+	`updated_at` INT(10) NULL DEFAULT NULL COMMENT 'Modify Time',
+	`language` INT(2) NULL DEFAULT '1' COMMENT 'Language Type',
+	PRIMARY KEY (`id`)
+)COLLATE='utf8_unicode_ci' ENGINE=InnoDB AUTO_INCREMENT=1;
+-- 正在导出表  jx.product 的数据：~0 rows (大约)
