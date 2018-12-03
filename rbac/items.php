@@ -146,6 +146,44 @@ return [
             '/bemanage/banner/*',
             '/bemanage/banner/delete-all',
             '/bemanage/banner/change-status',
+            '/bemanage/service/upload',
+            '/bemanage/service/index',
+            '/bemanage/service/view',
+            '/bemanage/service/create',
+            '/bemanage/service/update',
+            '/bemanage/service/delete',
+            '/bemanage/service/delete-all',
+            '/bemanage/service/change-status',
+            '/bemanage/about/upload',
+            '/bemanage/contact/upload',
+            '/bemanage/feedback/index',
+            '/bemanage/feedback/view',
+            '/bemanage/feedback/create',
+            '/bemanage/feedback/update',
+            '/bemanage/feedback/delete',
+            '/bemanage/feedback/delete-all',
+            '/bemanage/feedback/change-status',
+            '/bemanage/feedback/*',
+            '/bemanage/index/index',
+            '/bemanage/news/upload',
+            '/bemanage/news/index',
+            '/bemanage/news/view',
+            '/bemanage/news/create',
+            '/bemanage/news/update',
+            '/bemanage/news/delete',
+            '/bemanage/news/delete-all',
+            '/bemanage/news/change-status',
+            '/bemanage/product/upload',
+            '/bemanage/product/index',
+            '/bemanage/product/view',
+            '/bemanage/product/create',
+            '/bemanage/product/update',
+            '/bemanage/product/delete',
+            '/bemanage/product/delete-all',
+            '/bemanage/product/change-status',
+            '/bemanage/upload/image',
+            '/bemanage/upload/file',
+            '/bemanage/upload/delete-pic',
         ],
     ],
     '/admin/*' => [
@@ -472,6 +510,96 @@ return [
         'type' => 2,
     ],
     '/bemanage/service/change-status' => [
+        'type' => 2,
+    ],
+    '/bemanage/about/upload' => [
+        'type' => 2,
+    ],
+    '/bemanage/contact/upload' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/index' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/view' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/create' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/update' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/delete' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/delete-all' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/change-status' => [
+        'type' => 2,
+    ],
+    '/bemanage/feedback/*' => [
+        'type' => 2,
+    ],
+    '/bemanage/index/index' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/upload' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/index' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/view' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/create' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/update' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/delete' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/delete-all' => [
+        'type' => 2,
+    ],
+    '/bemanage/news/change-status' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/upload' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/index' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/view' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/create' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/update' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/delete' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/delete-all' => [
+        'type' => 2,
+    ],
+    '/bemanage/product/change-status' => [
+        'type' => 2,
+    ],
+    '/bemanage/upload/image' => [
+        'type' => 2,
+    ],
+    '/bemanage/upload/file' => [
+        'type' => 2,
+    ],
+    '/bemanage/upload/delete-pic' => [
         'type' => 2,
     ],
 ];

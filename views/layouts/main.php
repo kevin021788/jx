@@ -71,8 +71,7 @@ if(empty($config))
 
     <div class="container">
         <div class="page-top"></div>
-
-        <?//= Alert::widget() ?>
+<!--        --><?//= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>

@@ -7,6 +7,7 @@ use app\models\About;
 use app\models\Banner;
 use app\models\Category;
 use app\models\Contact;
+use app\models\Feedback;
 use app\models\Product;
 use app\models\Service;
 use Yii;
@@ -259,6 +260,18 @@ class SiteController extends Controller
                 'banner' => $banner,
                 'category' => $category,
             ]);
+        }
+    }
+
+    public function actionSaveFeedback()
+    {
+        safe();
+        $model = new Feedback();
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) && $model->save())
+        {
+            return \yii\helpers\Json::encode(['code'=>200,'msg'=>'成功']);
+        }else{
+            return \yii\helpers\Json::encode(['code'=>6001,'msg'=>'失败']);
         }
     }
 

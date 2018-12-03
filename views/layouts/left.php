@@ -15,6 +15,7 @@
                     ['label' => '新闻中心', 'icon' => 'fa fa-newspaper-o', 'url' => ['/bemanage/news']],
                     ['label' => '产品中心', 'icon' => 'fa fa-cubes', 'url' => ['/bemanage/product']],
                     ['label' => '联系我们', 'icon' => 'fa fa-play-circle', 'url' => ['/bemanage/contact']],
+                    ['label' => '留言管理', 'icon' => 'fa fa-play-circle', 'url' => ['/bemanage/feedback']],
                 ],
             ]
         ) ?>
